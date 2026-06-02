@@ -12,7 +12,6 @@
   <style>
     :root {
       --fondo:       #0d0b2b;
-      --fondo-2:     #1b1148;
       --oro:         #ffd23f;
       --oro-fuerte:  #ff9e00;
       --azul:        #2ec5ff;
@@ -54,11 +53,9 @@
 
     /* ── NAVBAR ── */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(13,11,43,.85);
-      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(13,11,43,.88);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--borde);
       padding: 0 20px;
       display: flex;
@@ -66,95 +63,58 @@
       justify-content: space-between;
       height: 56px;
     }
-
     .nav-brand {
       font-family: 'Lilita One', cursive;
       font-size: 1.1rem;
       color: var(--oro);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-
-    /* Links de escritorio */
-    .nav-links {
-      display: flex;
-      gap: 8px;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 8px; list-style: none; }
     .nav-links a {
-      text-decoration: none;
-      color: #cdd3ff;
-      font-weight: 700;
-      font-size: .9rem;
-      padding: 6px 14px;
-      border-radius: 999px;
+      text-decoration: none; color: #cdd3ff;
+      font-weight: 700; font-size: .9rem;
+      padding: 6px 14px; border-radius: 999px;
       transition: background .2s, color .2s;
     }
-    .nav-links a:hover,
-    .nav-links a.activo {
-      background: var(--azul);
-      color: #fff;
-    }
+    .nav-links a:hover, .nav-links a.activo { background: var(--azul); color: #fff; }
 
-    /* Botón hamburguesa */
     .hamburguesa {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      border-radius: 8px;
-      background: none;
-      border: none;
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px; background: none; border: none;
     }
     .hamburguesa span {
-      display: block;
-      width: 24px;
-      height: 3px;
-      background: var(--texto);
-      border-radius: 2px;
+      display: block; width: 24px; height: 3px;
+      background: var(--texto); border-radius: 2px;
       transition: transform .3s, opacity .3s;
     }
     .hamburguesa.abierto span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburguesa.abierto span:nth-child(2) { opacity: 0; }
     .hamburguesa.abierto span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* Menú desplegable móvil */
     .nav-menu-movil {
-      display: none;
-      flex-direction: column;
+      display: none; flex-direction: column;
       background: rgba(13,11,43,.97);
       border-bottom: 1px solid var(--borde);
-      padding: 12px 20px 16px;
-      gap: 8px;
+      padding: 12px 20px 16px; gap: 8px;
+      position: sticky; top: 56px; z-index: 199;
     }
     .nav-menu-movil.visible { display: flex; }
     .nav-menu-movil a {
-      text-decoration: none;
-      color: #cdd3ff;
-      font-weight: 700;
-      padding: 10px 14px;
-      border-radius: 12px;
-      transition: background .2s;
+      text-decoration: none; color: #cdd3ff; font-weight: 700;
+      padding: 10px 14px; border-radius: 12px; transition: background .2s;
     }
-    .nav-menu-movil a:hover,
-    .nav-menu-movil a.activo {
-      background: var(--azul);
-      color: #fff;
-    }
+    .nav-menu-movil a:hover, .nav-menu-movil a.activo { background: var(--azul); color: #fff; }
 
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .hamburguesa { display: flex; }
     }
 
-    /* ── CONTENIDO PRINCIPAL ── */
+    /* ── CONTENIDO ── */
     .contenedor {
-      max-width: 960px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 36px 16px 60px;
+      padding: 32px 16px 60px;
       text-align: center;
       animation: aparecer .8s ease;
     }
@@ -164,63 +124,128 @@
       font-size: clamp(1.8rem, 5vw, 3rem);
       color: var(--oro);
       text-shadow: 3px 3px 0 var(--oro-fuerte), 5px 5px 0 rgba(0,0,0,.35);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .subtitulo {
-      color: #cdd3ff;
-      font-size: clamp(.95rem, 2.5vw, 1.1rem);
-      font-style: italic;
-      margin-bottom: 28px;
+      color: #cdd3ff; font-size: 1rem;
+      font-style: italic; margin-bottom: 24px;
     }
 
-    /* ── CONTENEDOR IMAGEN 16:9 ── */
+    /* ── BARRA DE HERRAMIENTAS ── */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-tool {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: #fff; font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: .85rem;
+      padding: 8px 16px; border-radius: 999px;
+      cursor: pointer; transition: background .2s, transform .15s;
+      text-decoration: none;
+    }
+    .btn-tool:hover { background: var(--azul); transform: translateY(-2px); }
+    .btn-tool.activo { background: var(--azul); }
+
+    /* ── VISOR DEL BRACKET ── */
     .bracket-wrapper {
       background: var(--tarjeta);
       border: 1px solid var(--borde);
       border-radius: 20px;
-      padding: 20px;
+      padding: 16px;
       backdrop-filter: blur(6px);
-      box-shadow: 0 8px 32px rgba(0,0,0,.45);
-    }
-
-    .bracket-ratio {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 */
-      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.5);
       overflow: hidden;
-      background: rgba(0,0,0,.3);
     }
 
-    .bracket-ratio img {
-      position: absolute;
-      inset: 0;
+    /* Contenedor con scroll horizontal en móvil */
+    .bracket-scroll {
+      overflow: auto;
+      border-radius: 12px;
+      cursor: zoom-in;
+      /* Barra de scroll personalizada */
+      scrollbar-width: thin;
+      scrollbar-color: var(--azul) rgba(255,255,255,.08);
+    }
+    .bracket-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+    .bracket-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,.05); border-radius: 3px; }
+    .bracket-scroll::-webkit-scrollbar-thumb { background: var(--azul); border-radius: 3px; }
+
+    .bracket-scroll img {
+      display: block;
+      /* Ancho mínimo para que los nombres sean legibles */
+      min-width: 720px;
       width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 14px;
+      height: auto;
+      border-radius: 10px;
+      transition: transform .2s ease;
+      transform-origin: top left;
+      user-select: none;
+    }
+
+    /* Zoom activado */
+    .bracket-scroll.zoom-on {
+      cursor: zoom-out;
+    }
+    .bracket-scroll.zoom-on img {
+      width: auto;
+      min-width: unset;
     }
 
     .bracket-pie {
-      margin-top: 14px;
-      font-size: .85rem;
+      margin-top: 12px;
+      font-size: .82rem;
       color: #9aa0d4;
+    }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display: none;
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,.93);
+      align-items: center; justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.visible { display: flex; }
+    #lightbox img {
+      max-width: 95vw;
+      max-height: 95vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 0 60px rgba(46,197,255,.25);
+      cursor: default;
+    }
+    #lightbox .cerrar {
+      position: absolute; top: 16px; right: 20px;
+      font-size: 2rem; color: #fff; cursor: pointer;
+      background: rgba(255,255,255,.1);
+      border: none; border-radius: 50%;
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    #lightbox .cerrar:hover { background: var(--rosa); }
+    #lightbox .instruccion {
+      position: absolute; bottom: 16px;
+      left: 50%; transform: translateX(-50%);
+      color: #9aa0d4; font-size: .8rem;
+      background: rgba(0,0,0,.5);
+      padding: 6px 14px; border-radius: 999px;
     }
 
     /* ── BOTÓN VOLVER ── */
     .btn-volver {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 28px;
-      text-decoration: none;
-      color: #fff;
-      background: var(--tarjeta);
-      border: 1px solid var(--borde);
-      border-radius: 999px;
-      padding: 10px 22px;
-      font-weight: 700;
-      font-size: .95rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 24px; text-decoration: none; color: #fff;
+      background: var(--tarjeta); border: 1px solid var(--borde);
+      border-radius: 999px; padding: 10px 22px;
+      font-weight: 700; font-size: .95rem;
       transition: background .2s, transform .2s;
     }
     .btn-volver:hover { background: var(--azul); transform: translateY(-3px); }
@@ -243,11 +268,17 @@
     </button>
   </nav>
 
-  <!-- MENÚ MÓVIL -->
   <div class="nav-menu-movil" id="menuMovil">
     <a href="index.html">🏠 Inicio</a>
     <a href="pagina_2torneo.html" class="activo">🏆 Bracket</a>
     <a href="paginareloj.html">⏱️ Cuenta atrás</a>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <button class="cerrar" id="cerrarLightbox" aria-label="Cerrar">✕</button>
+    <img id="lightboxImg" src="imagenes/actual.png" alt="Bracket ampliado">
+    <span class="instruccion">Haz clic fuera o presiona ESC para cerrar · Pellizca para hacer zoom</span>
   </div>
 
   <!-- CONTENIDO -->
@@ -255,22 +286,84 @@
     <h1 class="titulo-pagina">🏆 Bracket del Torneo</h1>
     <p class="subtitulo">Cuadro actualizado en tiempo real · Team Crow Power</p>
 
+    <!-- Barra de herramientas -->
+    <div class="toolbar">
+      <button class="btn-tool" id="btnZoom">🔍 Ampliar imagen</button>
+      <button class="btn-tool" id="btnFullscreen">⛶ Pantalla completa</button>
+    </div>
+
     <div class="bracket-wrapper">
-      <div class="bracket-ratio">
-        <img src="imagenes/actual.png" alt="Bracket actual del torneo">
+      <div class="bracket-scroll" id="bracketScroll">
+        <img id="bracketImg" src="imagenes/actual.png" alt="Bracket actual del torneo"
+             draggable="false">
       </div>
-      <p class="bracket-pie">📸 Última actualización: revisa este bracket para seguir el torneo en vivo</p>
+      <p class="bracket-pie">📸 Haz clic en la imagen para ampliarla · Última actualización: revisa este bracket durante el torneo</p>
     </div>
 
     <a class="btn-volver" href="index.html">← Volver al inicio</a>
   </div>
 
   <script>
-    const btn = document.getElementById('menuBtn');
-    const menu = document.getElementById('menuMovil');
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('abierto');
-      menu.classList.toggle('visible');
+    // ── Menú hamburguesa ──
+    const menuBtn  = document.getElementById('menuBtn');
+    const menuMov  = document.getElementById('menuMovil');
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('abierto');
+      menuMov.classList.toggle('visible');
+    });
+
+    // ── Lightbox (clic en imagen) ──
+    const lightbox      = document.getElementById('lightbox');
+    const bracketImg    = document.getElementById('bracketImg');
+    const cerrarLightbox = document.getElementById('cerrarLightbox');
+
+    function abrirLightbox() { lightbox.classList.add('visible'); document.body.style.overflow = 'hidden'; }
+    function cerrarLB()      { lightbox.classList.remove('visible'); document.body.style.overflow = ''; }
+
+    bracketImg.addEventListener('click', abrirLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) cerrarLB(); });
+    cerrarLightbox.addEventListener('click', cerrarLB);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarLB(); });
+
+    // ── Botón "Ampliar imagen" (zoom 2×) ──
+    const bracketScroll = document.getElementById('bracketScroll');
+    const btnZoom = document.getElementById('btnZoom');
+    let zoomOn = false;
+
+    btnZoom.addEventListener('click', () => {
+      zoomOn = !zoomOn;
+      if (zoomOn) {
+        bracketImg.style.width = '200%';
+        bracketImg.style.minWidth = 'unset';
+        bracketScroll.classList.add('zoom-on');
+        btnZoom.textContent = '🔍 Zoom normal';
+      } else {
+        bracketImg.style.width = '100%';
+        bracketImg.style.minWidth = '720px';
+        bracketScroll.classList.remove('zoom-on');
+        btnZoom.textContent = '🔍 Ampliar imagen';
+      }
+    });
+
+    // ── Botón pantalla completa ──
+    const btnFull = document.getElementById('btnFullscreen');
+    btnFull.addEventListener('click', () => {
+      const el = document.getElementById('bracketScroll');
+      if (!document.fullscreenElement) {
+        el.requestFullscreen().catch(() => {
+          // Fallback: abrir lightbox si fullscreen no disponible
+          abrirLightbox();
+        });
+        btnFull.textContent = '⛶ Salir de pantalla completa';
+      } else {
+        document.exitFullscreen();
+        btnFull.textContent = '⛶ Pantalla completa';
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        btnFull.textContent = '⛶ Pantalla completa';
+      }
     });
   </script>
 
