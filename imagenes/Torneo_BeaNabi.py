@@ -75,7 +75,7 @@ C = {
 # Criterio: nombre más largo ≤ 14 chars; a 130 DPI cada char ≈ 8px → ok en 2.7u.
 BOX_W  = 2.7    # ancho fijo
 BOX_H  = 0.84   # alto fijo
-FS     = 11.5   # fontsize fijo (todas las cajas del bracket)
+FS     = 25   # fontsize fijo (todas las cajas del bracket)
 
 # Separación vertical entre jugadores en octavos.
 # 8 jugadores → span vertical = 7 × GAP_Y = 10.5 u.
@@ -326,11 +326,11 @@ def dibujar_bracket(ax, st):
         etiquetas = ["OCTAVOS", "CUARTOS", "SEMIFINAL", "FINAL"]
         for r, (x, lbl) in enumerate(zip(xs, etiquetas)):
             ax.text(x, y_lbl, lbl, ha="center", va="bottom",
-                    fontsize=9.5, fontweight="bold", color="#7070aa")
+                    fontsize=20, fontweight="bold", color="#7070aa")
 
         # ── Título del lado ──
         ax.text(xs[1], y_titulo, titulo, ha="center", va="bottom",
-                fontsize=14, fontweight="bold", color="#ccccff")
+                fontsize=25, fontweight="bold", color="#ccccff")
 
         # Estilos por ronda
         estilos = {0: col_base, 1: "win", 2: "win", 3: "final_w"}
@@ -415,18 +415,18 @@ def dibujar_panel_inferior(ax, st):
     xa3 = X3 - 2.8
     xb3 = X3 + 2.8
     draw_box(ax, xa3, Y_CONT, sl[0], "azul" if sl[0] else "empty",
-             w=BW3, fontsize=10)
+             w=BW3, fontsize=20)
     draw_box(ax, xb3, Y_CONT, sl[1], "rojo" if sl[1] else "empty",
-             w=BW3, fontsize=10)
+             w=BW3, fontsize=20)
 
     # Conector → ganador 3er puesto
     draw_match_connector_horiz(ax, xa3, xb3, Y_CONT, X3, Y_WIN + BOX_H / 2)
 
     # Caja del 3er puesto
-    draw_box(ax, X3, Y_WIN, st["tercero"], "bronze", w=3.4, fontsize=11)
+    draw_box(ax, X3, Y_WIN, st["tercero"], "bronze", w=3.4, fontsize=20)
     if st["tercero"]:
         ax.text(X3, Y_LBL, "3er Puesto", ha="center", va="center",
-                fontsize=9.5, fontweight="bold", color="#cd7f32")
+                fontsize=20, fontweight="bold", color="#cd7f32")
 
     # =================================================================
     #  SECCIÓN 2 — GRAN FINAL  (centro x = 18)
@@ -436,7 +436,7 @@ def dibujar_panel_inferior(ax, st):
 
     # Encabezado: estrella + texto con bbox dorado
     ax.text(XF, Y_HEAD, "★  GRAN FINAL  ★", ha="center", va="center",
-            fontsize=13, fontweight="bold", color="#ffd700",
+            fontsize=20, fontweight="bold", color="#ffd700",
             bbox=dict(boxstyle="round,pad=0.35", fc="#1a1000",
                       ec="#b8860b", lw=1.6, alpha=0.95))
 
@@ -444,9 +444,9 @@ def dibujar_panel_inferior(ax, st):
     xaf = XF - 3.5
     xbf = XF + 3.5
     draw_box(ax, xaf, Y_CONT, fin[0], "azul" if fin[0] else "empty",
-             w=BW_F, fontsize=10)
+             w=BW_F, fontsize=20)
     draw_box(ax, xbf, Y_CONT, fin[1], "rojo" if fin[1] else "empty",
-             w=BW_F, fontsize=10)
+             w=BW_F, fontsize=20)
 
     # Conector → campeón (el borde superior del champ box usa h=1.15)
     champ_top = Y_WIN + 1.15 / 2
@@ -458,9 +458,9 @@ def dibujar_panel_inferior(ax, st):
     # Etiqueta y estrella decorativa
     if st["wb"][4][0]:
         ax.text(XF, Y_LBL + 0.15, "CAMPEON!", ha="center", va="center",
-                fontsize=11, fontweight="bold", color="#ffd700")
+                fontsize=20, fontweight="bold", color="#ffd700")
         ax.text(XF, Y_LBL - 0.55, "★  ★  ★", ha="center", va="center",
-                fontsize=11, color="#b8860b", zorder=3)
+                fontsize=20, color="#b8860b", zorder=3)
 
     # =================================================================
     #  SECCIÓN 3 — PODIO  (centro x = 30)
@@ -469,7 +469,7 @@ def dibujar_panel_inferior(ax, st):
     ROW = 1.43   # separación vertical entre filas
 
     ax.text(XP, Y_HEAD, "PODIO", ha="center", va="center",
-            fontsize=13, fontweight="bold", color="#ffffff")
+            fontsize=20, fontweight="bold", color="#ffffff")
     ax.plot([25.5, 34.5], [Y_HEAD - 0.52, Y_HEAD - 0.52],
             color=C["sep"], lw=1.2, zorder=1)
 
@@ -487,13 +487,13 @@ def dibujar_panel_inferior(ax, st):
             draw_medal(ax, 25.8, yp, pos, r=0.39)
         else:
             ax.text(25.8, yp, "4to", ha="center", va="center",
-                    fontsize=9, fontweight="bold", color=color_lbl, zorder=5)
+                    fontsize=20, fontweight="bold", color=color_lbl, zorder=5)
 
         ax.text(26.9, yp + 0.10, lbl, ha="left", va="center",
-                fontsize=10.5, fontweight="bold", color=color_lbl)
+                fontsize=20, fontweight="bold", color=color_lbl)
 
         draw_box(ax, 32.0, yp, nombre, estilo if nombre else "empty",
-                 w=4.6, fontsize=10, z=3)
+                 w=4.6, fontsize=20, z=3)
 
 
 # =====================================================================
@@ -528,7 +528,7 @@ def render(st, banner=None, ruta=None, dpi=130):
     # Título principal
     fig.suptitle(
         "TORNEO 16 JUGADORES  —  ELIMINACION DIRECTA",
-        fontsize=22, fontweight="bold", color="#dde0ff",
+        fontsize=30, fontweight="bold", color="#dde0ff",
         y=0.97, fontfamily="DejaVu Sans",
     )
 
