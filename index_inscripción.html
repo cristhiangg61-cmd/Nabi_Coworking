@@ -655,9 +655,9 @@
         </div>
 
         <div class="agree-row">
-          <input type="checkbox" id="transmision">
+          <input type="checkbox" id="transmision" required>
           <label for="transmision">
-            <strong>Derechos de Transmisión y Repeticiones (Opcional)</strong><br>
+            <strong>Derechos de Transmisión y Repeticiones <span class="req">*</span></strong><br>
             "Autorizo a los organizadores a utilizar capturas de pantalla, repeticiones de mis partidas (especialmente mis mejores goles y jugadas con la Super) y mi nombre de jugador para la difusión de resultados y resúmenes del torneo."
           </label>
         </div>
@@ -729,8 +729,8 @@
         alert('El Tag debe comenzar con #. Ej: #XXXXXXXX');
         return;
       }
-      if (!reglamento) {
-        alert('Debes aceptar el tratamiento de datos para continuar.');
+      if (!reglamento || !transmision) {
+        alert('Debes aceptar los dos términos obligatorios para continuar.');
         return;
       }
 
@@ -748,7 +748,7 @@
       formData.append('Nacionalidad',      nacionalidad);
       formData.append('WhatsApp',          whatsapp);
       formData.append('Acepta reglamento', reglamento   ? 'Sí' : 'No');
-      formData.append('Autoriza difusión', transmision  ? 'Sí' : 'No');
+      formData.append('Derechos y transmisión', transmision  ? 'Sí' : 'No');
 
       // ⚠️ Reemplaza esta URL con tu propio Google Apps Script endpoint
       const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyxPSNIUHdoXcuCTiMaM1WE3njvawOedPkIRT4zXz4F_K2YfHLayi3cWOIfXJ9iVBzC/exec';
