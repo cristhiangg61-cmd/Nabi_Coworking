@@ -579,28 +579,21 @@
 
         <div class="field-grid" style="margin-bottom:14px">
           <div class="field">
-            <label>Posición <span class="req">*</span></label>
-            <select id="posicion" name="Posición" required>
-              <option value="">Selecciona...</option>
-              <option value="Competidor">Competidor</option>
-              <option value="Árbitro / Organizador">Árbitro / Organizador</option>
-            </select>
-          </div>
-          <div class="field">
             <label>Tag de Brawl Stars <span class="req">*</span></label>
             <input type="text" id="tag" name="Tag" placeholder="#XXXXXXXX" required>
-            <span class="field-hint">Tu tag empieza con #. Búscalo en tu perfil del juego.</span>
+            <span class="field-hint">Empieza con #. Búscalo en tu perfil del juego.</span>
           </div>
-        </div>
-
-        <div class="field-grid" style="margin-bottom:14px">
           <div class="field">
             <label>Nombre en el juego <span class="req">*</span></label>
             <input type="text" id="competidor" name="Competidor" placeholder="Tu nombre en Brawl Stars" required>
           </div>
-          <div class="field">
-            <label>Documento de identidad (ID) <span class="req">*</span></label>
-            <input type="text" id="id_doc" name="ID" placeholder="CC / TI / Pasaporte" required>
+        </div>
+
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field field-full">
+            <label>Supercell ID <span class="req">*</span></label>
+            <input type="text" id="supercell_id" name="Supercell ID" placeholder="Tu Supercell ID" required>
+            <span class="field-hint">El nombre de cuenta vinculado a Supercell.</span>
           </div>
         </div>
 
@@ -716,10 +709,9 @@
 
     // ── Envío del formulario ──
     async function handleSubmit() {
-      const posicion     = document.getElementById('posicion').value;
       const tag          = document.getElementById('tag').value.trim();
       const competidor   = document.getElementById('competidor').value.trim();
-      const idDoc        = document.getElementById('id_doc').value.trim();
+      const supercellId  = document.getElementById('supercell_id').value.trim();
       const sexo         = document.getElementById('sexo').value;
       const nacimiento   = document.getElementById('nacimiento').value;
       const copas        = document.getElementById('copas').value;
@@ -729,7 +721,7 @@
       const transmision  = document.getElementById('transmision').checked;
 
       // Validaciones
-      if (!posicion || !tag || !competidor || !idDoc || !nacimiento || !copas || !nacionalidad || !whatsapp) {
+      if (!tag || !competidor || !supercellId || !nacimiento || !copas || !nacionalidad || !whatsapp) {
         alert('Por favor completa todos los campos obligatorios (*).');
         return;
       }
@@ -747,10 +739,9 @@
       btn.textContent = 'Enviando...';
 
       const formData = new FormData();
-      formData.append('Posición',          posicion);
       formData.append('Tag',               tag);
       formData.append('Competidor',        competidor);
-      formData.append('ID',                idDoc);
+      formData.append('Supercell ID',      supercellId);
       formData.append('Sexo',              sexo || 'No especificado');
       formData.append('Fecha nacimiento',  nacimiento);
       formData.append('Copas',             copas);
@@ -760,7 +751,7 @@
       formData.append('Autoriza difusión', transmision  ? 'Sí' : 'No');
 
       // ⚠️ Reemplaza esta URL con tu propio Google Apps Script endpoint
-      const ENDPOINT = 'https://script.google.com/macros/s/REEMPLAZA_CON_TU_ENDPOINT/exec';
+      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyxPSNIUHdoXcuCTiMaM1WE3njvawOedPkIRT4zXz4F_K2YfHLayi3cWOIfXJ9iVBzC/exec';
 
       try {
         await fetch(ENDPOINT, { method: 'POST', body: formData, mode: 'no-cors' });
