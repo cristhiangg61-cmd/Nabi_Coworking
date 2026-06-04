@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torneo de Cubos Rubik · Universidad Surcolombiana</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --principal:        #8F141B;
+      --principal-oscuro: #5C0E12;
+      --principal-medio:  #B15B60;
+      --principal-claro:  #E3C5C6;
+      --principal-palido: #DDB8BA;
+      --principal-bg:     #F4E7E8;
+      --gris-oscuro: #1c1c1c;
+      --gris-medio:  #5a5a5a;
+      --gris-claro:  #faf6f6;
+      --blanco:      #ffffff;
+      --borde:       #e0cece;
+      --radio:    10px;
+      --radio-lg: 16px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--gris-claro);
+      color: var(--gris-oscuro);
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: var(--principal);
+      color: white;
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,  rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 48px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 48px);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      display: block;
+      max-height: 130px;
+      width: auto;
+      max-width: 100%;
+      margin: 0 auto 1.25rem;
+      filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.18));
+    }
+
+
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.92);
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span { color: var(--principal-claro); }
+
+    .hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.78);
+      max-width: 440px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hero-tag {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.88);
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 100px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 500;
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: -2rem auto 3rem;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .form-card {
+      background: var(--blanco);
+      border-radius: var(--radio-lg);
+      border: 1px solid var(--borde);
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(143,20,27,0.10);
+    }
+
+    .section {
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .section:last-child { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--principal);
+      color: white;
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gris-oscuro);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+
+    .field label {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--gris-medio);
+      font-family: 'Syne', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .req { color: var(--principal); margin-left: 2px; }
+
+    .field input,
+    .field select {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 10px 12px;
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      background: var(--gris-claro);
+      color: var(--gris-oscuro);
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--principal-medio);
+      background: white;
+    }
+
+    /* Tipo de participante — tarjetas */
+    .tipo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .tipo-card {
+      border: 1.5px solid var(--borde);
+      border-radius: var(--radio-lg);
+      padding: 14px 8px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+      text-align: center;
+      position: relative;
+    }
+
+    .tipo-card:hover {
+      border-color: var(--principal-medio);
+      background: var(--principal-bg);
+    }
+
+    .tipo-card.selected {
+      border-color: var(--principal);
+      background: var(--principal-bg);
+    }
+
+    .tipo-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--principal);
+      font-family: 'Syne', sans-serif;
+    }
+
+    .tipo-emoji { font-size: 22px; margin-bottom: 6px; display: block; }
+
+    .tipo-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gris-oscuro);
+      margin-bottom: 3px;
+    }
+
+    .tipo-desc {
+      font-size: 11px;
+      color: var(--gris-medio);
+      line-height: 1.3;
+    }
+
+    /* Modalidades */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .event-card {
+      border: 1.5px solid var(--borde);
+      border-radius: var(--radio-lg);
+      padding: 16px 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+      text-align: center;
+      position: relative;
+    }
+
+    .event-card:hover {
+      border-color: var(--principal-medio);
+      background: var(--principal-bg);
+    }
+
+    .event-card.selected {
+      border-color: var(--principal);
+      background: var(--principal-bg);
+    }
+
+    .event-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--principal);
+      font-family: 'Syne', sans-serif;
+    }
+
+    .event-card.proximamente {
+      opacity: 0.55;
+      cursor: default;
+      border-style: dashed;
+    }
+
+    .event-card.proximamente:hover {
+      border-color: var(--borde);
+      background: transparent;
+    }
+
+    .event-card input[type=checkbox] { display: none; }
+
+    .event-emoji { font-size: 26px; margin-bottom: 8px; display: block; }
+
+    .event-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gris-oscuro);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .event-desc {
+      font-size: 11px;
+      color: var(--gris-medio);
+      line-height: 1.4;
+    }
+
+    .prox-badge {
+      display: inline-block;
+      margin-top: 6px;
+      background: var(--principal-bg);
+      color: var(--principal);
+      font-size: 10px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+    }
+
+    .wca-note {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: var(--principal-bg);
+      border-left: 3px solid var(--principal-claro);
+      border-radius: 0 var(--radio) var(--radio) 0;
+      font-size: 12px;
+      color: var(--principal-oscuro);
+      line-height: 1.5;
+    }
+
+    .wca-note a { color: var(--principal); font-weight: 500; }
+
+    /* Términos */
+    .agree-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .agree-row:last-child { border-bottom: none; }
+
+    .agree-row input[type=checkbox] {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--principal);
+      cursor: pointer;
+    }
+
+    .agree-row label {
+      font-size: 13px;
+      color: var(--gris-medio);
+      line-height: 1.55;
+      cursor: pointer;
+    }
+
+    .agree-row a { color: var(--principal); }
+
+    .form-footer {
+      padding: 1.5rem 2rem;
+      background: var(--gris-claro);
+      border-top: 1px solid var(--borde);
+    }
+
+    .gratis-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--principal-bg);
+      border: 1px solid var(--principal-claro);
+      border-radius: var(--radio);
+      padding: 10px 14px;
+      margin-bottom: 1rem;
+      font-size: 13px;
+      color: var(--principal-oscuro);
+      font-weight: 500;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      background: var(--principal);
+      color: white;
+      border: none;
+      border-radius: var(--radio-lg);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      text-transform: uppercase;
+    }
+
+    .submit-btn:hover     { background: var(--principal-oscuro); }
+    .submit-btn:active    { transform: scale(0.99); }
+    .submit-btn:disabled  { background: var(--principal-claro); cursor: not-allowed; }
+
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .success-check {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--principal-bg);
+      border: 2px solid var(--principal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 28px;
+      color: var(--principal);
+    }
+
+    .success-screen h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--gris-oscuro);
+      margin-bottom: 0.5rem;
+    }
+
+    .success-screen p {
+      font-size: 14px;
+      color: var(--gris-medio);
+      max-width: 380px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    #success-detail {
+      margin-top: 1rem;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--principal);
+      font-family: 'Syne', sans-serif;
+    }
+
+    @media (max-width: 560px) {
+      .section      { padding: 1.5rem 1.25rem; }
+      .field-grid   { grid-template-columns: 1fr; }
+      .tipo-grid    { grid-template-columns: repeat(2, 1fr); }
+      .events-grid  { grid-template-columns: 1fr; }
+      .form-footer  { padding: 1.25rem; }
+      .hero         { padding: 2rem 1.25rem 3rem; }
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--gris-claro);
+      color: var(--gris-oscuro);
+      padding: 4rem 1.5rem 2rem;
+      margin-top: 0;
+    }
+
+    .footer-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.75rem;
+      align-items: stretch;
+    }
+
+    .footer-card {
+      position: relative;
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 3.25rem 1.75rem 1.75rem;
+      box-shadow: 0 4px 18px rgba(28, 28, 28, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-pill {
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--principal);
+      color: #ffffff;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 700;
+      padding: 9px 26px;
+      border-radius: 14px;
+      white-space: nowrap;
+      box-shadow: 0 6px 16px rgba(143, 20, 27, 0.32);
+      letter-spacing: 0.01em;
+    }
+
+    .aliados-banner {
+      width: 100%;
+      text-align: center;
+    }
+
+    .aliados-banner img {
+      max-width: 100%;
+      height: auto;
+      display: inline-block;
+    }
+
+    .organizers-stack {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .org-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .org-row img {
+      max-height: 78px;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .org-row.featured img { max-height: 92px; }
+    .org-row.big img { max-height: 145px; }
+    .org-row.big img:first-child { max-height: 124px; }
+    .org-row.big { gap: 2.25rem; }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 2.5rem auto 0;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--gris-medio);
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    @media (max-width: 860px) {
+      .footer-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-card { padding-top: 3rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <img class="hero-logo" src="logos/universidad-surcolombiana-v.png" alt="Universidad Surcolombiana">
+    <div class="hero-badge">Universidad Surcolombiana · Neiva, Huila</div>
+    <h1>Torneo de<br><span>Cubos Rubik</span></h1>
+    <p>Normas oficiales WCA 2024 · Abierto para toda la comunidad. Inscripción gratuita.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">⏱ Speedsolving</span>
+      <span class="hero-tag">🏆 Normas WCA</span>
+      <span class="hero-tag">🎓 Comunidad USCO</span>
+      <span class="hero-tag">✅ Gratis</span>
+    </div>
+  </header>
+
+  <div class="form-container">
+    <div class="form-card" id="main-form">
+
+      <!-- Sección 1: Datos personales -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">1</div>
+          <span class="section-title">Datos personales</span>
+        </div>
+
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field">
+            <label>Nombre completo <span class="req">*</span></label>
+            <input type="text" id="nombre" name="Nombre completo" placeholder="Ej. Juan Pérez García" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label>Número de documento <span class="req">*</span></label>
+            <input type="text" id="doc" name="Número de documento" placeholder="CC / TI / Pasaporte" required>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field">
+            <label>Fecha de nacimiento <span class="req">*</span></label>
+            <input type="date" id="nacimiento" name="Fecha de nacimiento" required>
+          </div>
+          <div class="field">
+            <label>Género</label>
+            <select id="genero" name="Género">
+              <option value="">Selecciona...</option>
+              <option>Masculino</option>
+              <option>Femenino</option>
+              <option>No binario</option>
+              <option>Prefiero no decir</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-bottom:20px">
+          <div class="field">
+            <label>Correo electrónico <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label>Teléfono / WhatsApp <span class="req">*</span></label>
+            <input type="tel" id="tel" name="Teléfono" placeholder="300 000 0000" autocomplete="tel" required>
+          </div>
+        </div>
+
+        <!-- Tipo de participante -->
+        <div style="margin-bottom:6px">
+          <label style="font-size:12.5px;font-weight:500;color:var(--gris-medio);font-family:'Syne',sans-serif;letter-spacing:0.02em;display:block;margin-bottom:10px">
+            Tipo de participante <span class="req">*</span>
+          </label>
+          <div class="tipo-grid">
+            <div class="tipo-card" id="tipo-colegio" onclick="selectTipo('Colegio', this)">
+              <span class="tipo-emoji">🎒</span>
+              <div class="tipo-name">Colegio</div>
+              <div class="tipo-desc">Primaria y bachillerato</div>
+            </div>
+            <div class="tipo-card" id="tipo-universidad" onclick="selectTipo('Universidad', this)">
+              <span class="tipo-emoji">🎓</span>
+              <div class="tipo-name">Universidad</div>
+              <div class="tipo-desc">Educación superior</div>
+            </div>
+            <div class="tipo-card" id="tipo-externo" onclick="selectTipo('Externo', this)">
+              <span class="tipo-emoji">🌐</span>
+              <div class="tipo-name">Externo</div>
+              <div class="tipo-desc">Comunidad general</div>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" id="tipo-input" name="Tipo de participante">
+      </div>
+
+      <!-- Sección 2: Modalidades -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">2</div>
+          <span class="section-title">Modalidad a participar</span>
+        </div>
+        <div class="events-grid">
+
+          <div class="event-card selected" id="card-velocidad" onclick="toggleEvent('velocidad', this)">
+            <input type="checkbox" checked>
+            <span class="event-emoji">⚡</span>
+            <div class="event-name">3×3 Velocidad</div>
+            <div class="event-desc">Resuelve el cubo en el menor tiempo posible</div>
+          </div>
+
+          <div class="event-card" id="card-1vs1" onclick="toggleEvent('1vs1', this)">
+            <input type="checkbox">
+            <span class="event-emoji">🏆</span>
+            <div class="event-name">3×3 — 1 vs 1</div>
+            <div class="event-desc">Todos contra todos — el más rápido en resolver gana</div>
+          </div>
+
+          <div class="event-card" id="card-pyra" onclick="toggleEvent('pyra', this)">
+            <input type="checkbox">
+            <span class="event-emoji">🔺</span>
+            <div class="event-name">Pyraminx</div>
+            <div class="event-desc">Cubo piramidal con mecánica única</div>
+          </div>
+
+          <div class="event-card" id="card-222" style="grid-column: 2;" onclick="toggleEvent('222', this)">
+            <input type="checkbox">
+            <span class="event-emoji">🟦</span>
+            <div class="event-name">2×2</div>
+            <div class="event-desc">Pocket cube, ideal para principiantes</div>
+          </div>
+
+        </div>
+        <div class="wca-note">
+          Todas las modalidades siguen el <a href="https://www.worldcubeassociation.org/regulations/translations/spanish-american/" target="_blank">Reglamento oficial WCA</a>.
+        </div>
+      </div>
+
+      <!-- Sección 3: Términos -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">3</div>
+          <span class="section-title">Aceptación de términos</span>
+        </div>
+        <div class="agree-row">
+          <input type="checkbox" id="reglamento">
+          <label for="reglamento">He leído y acepto el <a href="https://www.worldcubeassociation.org/regulations/translations/spanish-american/" target="_blank">Reglamento oficial de la WCA</a> y me comprometo a cumplirlo durante el torneo. <span class="req">*</span></label>
+        </div>
+        <div class="agree-row">
+          <input type="checkbox" id="datos">
+          <label for="datos">Autorizo a la Universidad Surcolombiana para el <a href="docs/Acuerdo017De2026_PoliticaPrivacidadDatosPersonalesUSCO.pdf" target="_blank" rel="noopener">tratamiento de mis datos personales</a> con fines organizativos del torneo, conforme a la Ley 1581 de 2012. <span class="req">*</span></label>
+        </div>
+        <div class="agree-row">
+          <input type="checkbox" id="imagenes">
+          <label for="imagenes">Autorizo el uso de fotografías y videos tomados durante el evento con fines institucionales y de difusión.</label>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="form-footer">
+        <div class="gratis-banner">
+          ✅ Inscripción completamente gratuita — no se requiere ningún pago.
+        </div>
+        <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Enviar inscripción →</button>
+      </div>
+
+    </div>
+
+    <!-- Pantalla de éxito -->
+    <div class="form-card success-screen" id="success-screen">
+      <div class="success-check">✓</div>
+      <h2>¡Inscripción enviada!</h2>
+      <p>Recibirás un correo de confirmación. Recuerda llevar tu documento de identidad el día del torneo.</p>
+      <p id="success-detail"></p>
+    </div>
+  </div>
+
+  <script>
+    const selectedEvents = new Set(['velocidad']);
+    const nombresModal = {
+      'velocidad':   '3×3 Velocidad',
+      '1vs1':        '3×3 — 1 vs 1',
+      'pyra':        'Pyraminx',
+      '222':         '2×2'
+    };
+    let tipoSeleccionado = '';
+
+    function selectTipo(valor, card) {
+      document.querySelectorAll('.tipo-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      tipoSeleccionado = valor;
+      document.getElementById('tipo-input').value = valor;
+    }
+
+    function toggleEvent(id, card) {
+      const cb = card.querySelector('input[type=checkbox]');
+      if (selectedEvents.has(id)) {
+        selectedEvents.delete(id);
+        card.classList.remove('selected');
+        cb.checked = false;
+      } else {
+        selectedEvents.add(id);
+        card.classList.add('selected');
+        cb.checked = true;
+      }
+    }
+
+    async function handleSubmit() {
+      const nombre   = document.getElementById('nombre').value.trim();
+      const doc      = document.getElementById('doc').value.trim();
+      const nac      = document.getElementById('nacimiento').value;
+      const email    = document.getElementById('email').value.trim();
+      const tel      = document.getElementById('tel').value.trim();
+      const genero   = document.getElementById('genero').value;
+      const reglam   = document.getElementById('reglamento').checked;
+      const datos    = document.getElementById('datos').checked;
+      const imagenes = document.getElementById('imagenes').checked;
+
+      if (!nombre || !doc || !nac || !email || !tel) {
+        alert('Por favor completa todos los campos obligatorios (*).');
+        return;
+      }
+      if (!tipoSeleccionado) {
+        alert('Selecciona tu tipo de participante.');
+        return;
+      }
+      if (selectedEvents.size === 0) {
+        alert('Selecciona al menos una modalidad para participar.');
+        return;
+      }
+      if (!reglam || !datos) {
+        alert('Debes aceptar los términos obligatorios para continuar.');
+        return;
+      }
+
+      const mods = [...selectedEvents].map(id => nombresModal[id]).join(', ');
+
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      const formData = new FormData();
+      formData.append('Nombre completo',       nombre);
+      formData.append('Número de documento',   doc);
+      formData.append('Fecha de nacimiento',   nac);
+      formData.append('Género',                genero || 'No especificado');
+      formData.append('email',                 email);
+      formData.append('Teléfono',              tel);
+      formData.append('Tipo de participante',  tipoSeleccionado);
+      formData.append('Modalidades',           mods);
+      formData.append('Acepta reglamento WCA', reglam   ? 'Sí' : 'No');
+      formData.append('Autoriza datos',        datos    ? 'Sí' : 'No');
+      formData.append('Autoriza imágenes',     imagenes ? 'Sí' : 'No');
+
+      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbziFSQnM-ax7nY2cBxkWcVEne862aprTDjg_JiMioAuXPmNR-68utLmk0bOl2NI9ba4/exec';
+
+      try {
+        await fetch(ENDPOINT, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors'
+        });
+
+        // Con mode: 'no-cors' la respuesta es opaca, así que asumimos éxito si no lanzó error de red.
+        document.getElementById('main-form').style.display = 'none';
+        document.getElementById('success-screen').style.display = 'block';
+        document.getElementById('success-detail').textContent =
+          nombre + ' · ' + tipoSeleccionado + ' · ' + mods;
+      } catch (err) {
+        alert('Error de conexión. Verifica tu internet e intenta de nuevo.');
+        btn.disabled = false;
+        btn.textContent = 'Enviar inscripción →';
+      }
+    }
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+
+      <!-- Organiza -->
+      <div class="footer-card">
+        <span class="footer-pill">Organiza</span>
+        <div class="organizers-stack">
+          <div class="org-row featured">
+            <img src="logos/logo-usco.png" alt="Universidad Surcolombiana">
+          </div>
+          <div class="org-row big">
+            <img src="logos/logo-ieee.jpeg" alt="IEEE Rama Estudiantil USCO">
+            <img src="logos/logo-devurity.png" alt="Devurity">
+          </div>
+          <div class="org-row">
+            <img src="logos/logo-edurubiks.png" alt="EduRubiks">
+          </div>
+        </div>
+      </div>
+
+      <!-- Aliados estratégicos -->
+      <div class="footer-card">
+        <span class="footer-pill">Aliados estratégicos</span>
+        <div class="aliados-banner">
+          <img src="logos/aliados.png" alt="Aliados estratégicos del torneo">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Universidad Surcolombiana · Todos los derechos reservados</span>
+      <span>Torneo de Cubos Rubik · Normas WCA 2024</span>
+    </div>
+  </footer>
+
+</body>
+</html>
