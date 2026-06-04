@@ -649,8 +649,8 @@
         <div class="agree-row">
           <input type="checkbox" id="reglamento" required>
           <label for="reglamento">
-            <strong>Tratamiento de Datos del Brawler *</strong><br>
-            "Autorizo a TCP &amp; NBP para el manejo de mi Player Tag (#ID), nombre en el juego y contacto de WhatsApp con fines estrictamente organizativos (armado del bracket, emparejamientos y coordinación para la entrega de la skin Siamese Kit), conforme a las normativas de protección de datos vigentes." <span class="req">*</span>
+            <strong>Tratamiento de Datos del Brawler <span class="req">*</span></strong><br>
+            "Autorizo a TCP &amp; NBP para el manejo de mi Player Tag (#ID), nombre en el juego y contacto de WhatsApp con fines estrictamente organizativos (armado del bracket, emparejamientos y coordinación para la entrega de la skin Siamese Kit), conforme a las normativas de protección de datos vigentes."
           </label>
         </div>
 
@@ -751,7 +751,7 @@
       formData.append('Derechos y transmisión', transmision  ? 'Sí' : 'No');
 
       // ⚠️ Reemplaza esta URL con tu propio Google Apps Script endpoint
-      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyxPSNIUHdoXcuCTiMaM1WE3njvawOedPkIRT4zXz4F_K2YfHLayi3cWOIfXJ9iVBzC/exec';
+      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxlYoX4L5OFcI9us3ejfnjYwFw-wj3Xiz_kg_1IzqIwA7xKbLEsT2QXa8-B1ZlXt6o/exec';
 
       try {
         await fetch(ENDPOINT, { method: 'POST', body: formData, mode: 'no-cors' });
