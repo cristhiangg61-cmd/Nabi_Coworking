@@ -392,9 +392,10 @@
     <h1 class="titulo">Torneo Domingo 2 VS 2<span class="fuego">🔥</span></h1>
     <p class="subtitulo">¡Falta poco! Prepárate para la batalla</p>
 
-    <!-- COUNTDOWN -->
+    <!-- COUNTDOWN 1 -->
     <div class="countdown-box">
       <div class="countdown-label">⏳ Tiempo restante</div>
+      <div style="font-size: 14px; color: var(--oro); margin-bottom: 1rem;">📅 Torneo: domingo, 7 de junio de 2026, 6:00 p.m. MX</div>
       <div class="countdown">
         <div class="countdown-item">
           <div class="countdown-number" id="dias">0</div>
@@ -474,41 +475,29 @@
 
     // ── Countdown ──
     function actualizarCountdown() {
-      // Próximo domingo a las 6:00 PM (hora México)
-      // Para calcular correctamente, usamos la zona horaria de México (UTC-5/6)
       const ahora = new Date();
       
-      // Crear la fecha del próximo domingo a las 18:00 (6 PM)
-      let proximo = new Date();
-      const dia = proximo.getDay();
-      const diasHasta = (7 - dia) % 7 || 7; // Si es domingo, será 7 (próximo domingo)
-      proximo.setDate(proximo.getDate() + diasHasta);
-      proximo.setHours(18, 0, 0, 0);
+      // COUNTDOWN 1: domingo 7 de junio de 2026 a las 18:00 (6 PM)
+      const fecha1 = new Date(2026, 5, 7, 18, 0, 0, 0); // Mes 5 es junio (0-indexed)
+      const diferencia1 = fecha1 - ahora;
 
-      // Si ya pasó hoy, será el próximo domingo
-      if (proximo <= ahora) {
-        proximo.setDate(proximo.getDate() + 7);
-      }
+      if (diferencia1 > 0) {
+        const d1 = Math.floor(diferencia1 / (1000 * 60 * 60 * 24));
+        const h1 = Math.floor((diferencia1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m1 = Math.floor((diferencia1 % (1000 * 60 * 60)) / (1000 * 60));
+        const s1 = Math.floor((diferencia1 % (1000 * 60)) / 1000);
 
-      const diferencia = proximo - ahora;
+        document.getElementById('dias').textContent = d1;
+        document.getElementById('horas').textContent = h1;
+        document.getElementById('minutos').textContent = m1;
+        document.getElementById('segundos').textContent = s1;
 
-      if (diferencia > 0) {
-        const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-        document.getElementById('dias').textContent = d;
-        document.getElementById('horas').textContent = h;
-        document.getElementById('minutos').textContent = m;
-        document.getElementById('segundos').textContent = s;
-
-        if (d === 0 && h < 1) {
+        if (d1 === 0 && h1 < 1) {
           document.getElementById('mensaje').textContent = '¡El torneo comienza en menos de 1 hora! ⚔️';
-        } else if (d === 0) {
+        } else if (d1 === 0) {
           document.getElementById('mensaje').textContent = '¡Hoy es el día! ¡Prepárate! 🔥';
         } else {
-          document.getElementById('mensaje').textContent = `El torneo comienza el domingo a las 6:00 PM (Hora México)`;
+          document.getElementById('mensaje').textContent = `El torneo comienza en ${d1} días y ${h1} horas`;
         }
       } else {
         document.getElementById('dias').textContent = '0';
