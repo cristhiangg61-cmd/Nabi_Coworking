@@ -343,12 +343,6 @@ def dibujar_bracket(ax, st):
     X_FIN_IZQ  = XS_IZQ[2]   # -3.0
     X_FIN_DER  = XS_DER[2]   # +3.0
 
-    # Etiqueta de columna "FINAL"
-    ax.text(X_FIN_IZQ, y_lbl, "FINAL", ha="center", va="bottom",
-            fontsize=19, fontweight="bold", color="#7070aa")
-    ax.text(X_FIN_DER, y_lbl, "FINAL", ha="center", va="bottom",
-            fontsize=19, fontweight="bold", color="#7070aa")
-
     draw_box_duo(ax, X_FIN_IZQ, y_fin, rondas[2][0],
                  "azul" if rondas[2][0] else "final_w")
     draw_box_duo(ax, X_FIN_DER, y_fin, rondas[2][1],
@@ -628,7 +622,7 @@ def correr_torneo(equipos, out_dir=None):
         try:    out_dir = os.path.dirname(os.path.abspath(__file__))
         except: out_dir = os.getcwd()
     os.makedirs(out_dir, exist_ok=True)
-    ruta_actual = os.path.join(out_dir, "actual.png")
+    ruta_actual = os.path.join(out_dir, "actual_2vs2.png")
 
     partidos     = _construir_partidos(equipos)
     st           = estado_inicial(equipos)
