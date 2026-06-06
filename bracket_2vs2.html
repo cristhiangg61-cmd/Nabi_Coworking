@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bracket · Torneo PVP · Team Crow Power</title>
+  <title>Bracket · Torneo 2 VS 2 · Team Crow Power</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,65 +51,6 @@
     }
     @keyframes parpadeo { from{opacity:.15} to{opacity:.45} }
 
-    /* ── NAVBAR ── */
-    nav {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(13,11,43,.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--borde);
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-    }
-    .nav-brand {
-      font-family: 'Lilita One', cursive;
-      font-size: 1.1rem;
-      color: var(--oro);
-      text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 8px; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: #cdd3ff;
-      font-weight: 700; font-size: .9rem;
-      padding: 6px 14px; border-radius: 999px;
-      transition: background .2s, color .2s;
-    }
-    .nav-links a:hover, .nav-links a.activo { background: var(--azul); color: #fff; }
-
-    .hamburguesa {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 6px; background: none; border: none;
-    }
-    .hamburguesa span {
-      display: block; width: 24px; height: 3px;
-      background: var(--texto); border-radius: 2px;
-      transition: transform .3s, opacity .3s;
-    }
-    .hamburguesa.abierto span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburguesa.abierto span:nth-child(2) { opacity: 0; }
-    .hamburguesa.abierto span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    .nav-menu-movil {
-      display: none; flex-direction: column;
-      background: rgba(13,11,43,.97);
-      border-bottom: 1px solid var(--borde);
-      padding: 12px 20px 16px; gap: 8px;
-      position: sticky; top: 56px; z-index: 199;
-    }
-    .nav-menu-movil.visible { display: flex; }
-    .nav-menu-movil a {
-      text-decoration: none; color: #cdd3ff; font-weight: 700;
-      padding: 10px 14px; border-radius: 12px; transition: background .2s;
-    }
-    .nav-menu-movil a:hover, .nav-menu-movil a.activo { background: var(--azul); color: #fff; }
-
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hamburguesa { display: flex; }
-    }
-
     /* ── CONTENIDO ── */
     .contenedor {
       max-width: 1100px;
@@ -133,12 +74,8 @@
 
     /* ── BARRA DE HERRAMIENTAS ── */
     .toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-bottom: 14px; flex-wrap: wrap;
     }
     .btn-tool {
       display: inline-flex; align-items: center; gap: 6px;
@@ -150,8 +87,7 @@
       cursor: pointer; transition: background .2s, transform .15s;
       text-decoration: none;
     }
-    .btn-tool:hover { background: var(--azul); transform: translateY(-2px); }
-    .btn-tool.activo { background: var(--azul); }
+    .btn-tool:hover { background: var(--rosa); transform: translateY(-2px); }
 
     /* ── VISOR DEL BRACKET ── */
     .bracket-wrapper {
@@ -164,22 +100,19 @@
       overflow: hidden;
     }
 
-    /* Contenedor con scroll horizontal en móvil */
     .bracket-scroll {
       overflow: auto;
       border-radius: 12px;
       cursor: zoom-in;
-      /* Barra de scroll personalizada */
       scrollbar-width: thin;
-      scrollbar-color: var(--azul) rgba(255,255,255,.08);
+      scrollbar-color: var(--rosa) rgba(255,255,255,.08);
     }
     .bracket-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
     .bracket-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,.05); border-radius: 3px; }
-    .bracket-scroll::-webkit-scrollbar-thumb { background: var(--azul); border-radius: 3px; }
+    .bracket-scroll::-webkit-scrollbar-thumb { background: var(--rosa); border-radius: 3px; }
 
     .bracket-scroll img {
       display: block;
-      /* Ancho mínimo para que los nombres sean legibles */
       min-width: 720px;
       width: 100%;
       height: auto;
@@ -188,21 +121,10 @@
       transform-origin: top left;
       user-select: none;
     }
+    .bracket-scroll.zoom-on { cursor: zoom-out; }
+    .bracket-scroll.zoom-on img { width: auto; min-width: unset; }
 
-    /* Zoom activado */
-    .bracket-scroll.zoom-on {
-      cursor: zoom-out;
-    }
-    .bracket-scroll.zoom-on img {
-      width: auto;
-      min-width: unset;
-    }
-
-    .bracket-pie {
-      margin-top: 12px;
-      font-size: .82rem;
-      color: #9aa0d4;
-    }
+    .bracket-pie { margin-top: 12px; font-size: .82rem; color: #9aa0d4; }
 
     /* ── LIGHTBOX ── */
     #lightbox {
@@ -214,11 +136,9 @@
     }
     #lightbox.visible { display: flex; }
     #lightbox img {
-      max-width: 95vw;
-      max-height: 95vh;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 0 60px rgba(46,197,255,.25);
+      max-width: 95vw; max-height: 95vh;
+      object-fit: contain; border-radius: 12px;
+      box-shadow: 0 0 60px rgba(255,61,129,.25);
       cursor: default;
     }
     #lightbox .cerrar {
@@ -248,7 +168,7 @@
       font-weight: 700; font-size: .95rem;
       transition: background .2s, transform .2s;
     }
-    .btn-volver:hover { background: var(--azul); transform: translateY(-3px); }
+    .btn-volver:hover { background: var(--rosa); transform: translateY(-3px); }
 
     @keyframes aparecer { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
   </style>
@@ -258,16 +178,15 @@
   <!-- LIGHTBOX -->
   <div id="lightbox">
     <button class="cerrar" id="cerrarLightbox" aria-label="Cerrar">✕</button>
-    <img id="lightboxImg" src="imagenes/actual.png" alt="Bracket ampliado">
+    <img id="lightboxImg" src="imagenes/actual_2vs2.png" alt="Bracket 2vs2 ampliado">
     <span class="instruccion">Haz clic fuera o presiona ESC para cerrar · Pellizca para hacer zoom</span>
   </div>
 
   <!-- CONTENIDO -->
   <div class="contenedor">
-    <h1 class="titulo-pagina">🏆 Bracket del Torneo</h1>
-    <p class="subtitulo">Cuadro actualizado en tiempo real · Team Crow Power</p>
+    <h1 class="titulo-pagina">🏆 Bracket · 2 VS 2</h1>
+    <p class="subtitulo">8 equipos · Cuartos → Semifinal → Final · Team Crow Power</p>
 
-    <!-- Barra de herramientas -->
     <div class="toolbar">
       <button class="btn-tool" id="btnZoom">🔍 Ampliar imagen</button>
       <button class="btn-tool" id="btnFullscreen">⛶ Pantalla completa</button>
@@ -275,10 +194,10 @@
 
     <div class="bracket-wrapper">
       <div class="bracket-scroll" id="bracketScroll">
-        <img id="bracketImg" src="imagenes/actual.png" alt="Bracket actual del torneo"
+        <img id="bracketImg" src="imagenes/actual_2vs2.png" alt="Bracket actual del torneo 2vs2"
              draggable="false">
       </div>
-      <p class="bracket-pie">📸 Haz clic en la imagen para ampliarla · Última actualización: revisa este bracket durante el torneo</p>
+      <p class="bracket-pie">📸 Haz clic en la imagen para ampliarla · Revisa este bracket durante el torneo</p>
     </div>
 
     <a class="btn-volver" href="index.html">← Volver al inicio</a>
@@ -286,8 +205,8 @@
 
   <script>
     // ── Lightbox (clic en imagen) ──
-    const lightbox      = document.getElementById('lightbox');
-    const bracketImg    = document.getElementById('bracketImg');
+    const lightbox       = document.getElementById('lightbox');
+    const bracketImg     = document.getElementById('bracketImg');
     const cerrarLightbox = document.getElementById('cerrarLightbox');
 
     function abrirLightbox() { lightbox.classList.add('visible'); document.body.style.overflow = 'hidden'; }
@@ -302,7 +221,6 @@
     const bracketScroll = document.getElementById('bracketScroll');
     const btnZoom = document.getElementById('btnZoom');
     let zoomOn = false;
-
     btnZoom.addEventListener('click', () => {
       zoomOn = !zoomOn;
       if (zoomOn) {
@@ -323,10 +241,7 @@
     btnFull.addEventListener('click', () => {
       const el = document.getElementById('bracketScroll');
       if (!document.fullscreenElement) {
-        el.requestFullscreen().catch(() => {
-          // Fallback: abrir lightbox si fullscreen no disponible
-          abrirLightbox();
-        });
+        el.requestFullscreen().catch(() => abrirLightbox());
         btnFull.textContent = '⛶ Salir de pantalla completa';
       } else {
         document.exitFullscreen();
@@ -334,9 +249,7 @@
       }
     });
     document.addEventListener('fullscreenchange', () => {
-      if (!document.fullscreenElement) {
-        btnFull.textContent = '⛶ Pantalla completa';
-      }
+      if (!document.fullscreenElement) btnFull.textContent = '⛶ Pantalla completa';
     });
   </script>
 

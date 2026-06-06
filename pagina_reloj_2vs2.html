@@ -366,27 +366,6 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <a class="nav-brand" href="index.html">🐦 Team Crow Power</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="pagina_2torneo.html">Bracket</a></li>
-      <li><a href="pagina_reloj_2vs2.html" class="activo">Cuenta atrás</a></li>
-      <li><a href="index_inscripción_2vs2.html">Inscripción</a></li>
-    </ul>
-    <button class="hamburguesa" id="menuBtn" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="nav-menu-movil" id="menuMovil">
-    <a href="index.html">🏠 Inicio</a>
-    <a href="pagina_2torneo.html">🏆 Bracket</a>
-    <a href="pagina_reloj_2vs2.html" class="activo">⏱️ Cuenta atrás</a>
-    <a href="index_inscripción_2vs2.html">📝 Inscripción</a>
-  </div>
-
   <!-- CONTENIDO -->
   <div class="contenedor">
     <h1 class="titulo">Torneo Domingo 2 VS 2<span class="fuego">🔥</span></h1>
@@ -465,14 +444,6 @@
   </footer>
 
   <script>
-    // ── Menú hamburguesa ──
-    const menuBtn = document.getElementById('menuBtn');
-    const menuMov = document.getElementById('menuMovil');
-    menuBtn.addEventListener('click', () => {
-      menuBtn.classList.toggle('abierto');
-      menuMov.classList.toggle('visible');
-    });
-
     // ── Countdown ──
     function actualizarCountdown() {
       const ahora = new Date();
@@ -514,5 +485,6 @@
     setInterval(actualizarCountdown, 1000);
   </script>
 
+  <script src="menu.js"></script>
 </body>
 </html>

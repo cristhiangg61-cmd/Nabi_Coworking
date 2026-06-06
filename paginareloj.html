@@ -549,26 +549,6 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <a class="nav-brand" href="index.html">&#x1F426; Team Crow Power</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="pagina_2torneo.html">Bracket</a></li>
-      <li><a href="paginareloj_1vs1.html" class="activo">Cuenta Atras</a></li>
-      <li><a href="inscripcion.html">Inscripcion</a></li>
-    </ul>
-    <button class="hamburguesa" id="menuBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="nav-menu-movil" id="menuMovil">
-    <a href="index.html">&#x1F3E0; Inicio</a>
-    <a href="pagina_2torneo.html">&#x1F3C6; Bracket</a>
-    <a href="paginareloj_1vs1.html" class="activo">&#x23F1;&#xFE0F; Cuenta Atras</a>
-    <a href="inscripcion.html">&#x1F4DD; Inscripcion</a>
-  </div>
 
   <!-- CONTENIDO -->
   <div class="contenedor">
@@ -632,7 +612,7 @@
 
     <!-- BOTONES -->
     <div class="buttons">
-      <a href="inscripcion.html" class="btn btn-primary">&#x1F4DD; Inscribirse Ahora</a>
+      <a href="index_inscripción.html" class="btn btn-primary">&#x1F4DD; Inscribirse Ahora</a>
       <a href="pagina_2torneo.html" class="btn btn-secondary">&#x1F3C6; Ver Bracket</a>
       <a href="index.html" class="btn btn-secondary">&#x1F3E0; Volver Atras</a>
     </div>
@@ -715,22 +695,8 @@
 
     actualizarCountdown();
 
-    // ---- MENU HAMBURGUESA ----
-    var menuBtn   = document.getElementById('menuBtn');
-    var menuMovil = document.getElementById('menuMovil');
-
-    menuBtn.addEventListener('click', function() {
-      menuBtn.classList.toggle('abierto');
-      menuMovil.classList.toggle('visible');
-    });
-
-    document.querySelectorAll('.nav-menu-movil a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        menuBtn.classList.remove('abierto');
-        menuMovil.classList.remove('visible');
-      });
-    });
   </script>
 
+  <script src="menu.js"></script>
 </body>
 </html>

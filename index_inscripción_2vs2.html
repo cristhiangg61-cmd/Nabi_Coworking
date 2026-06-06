@@ -584,26 +584,6 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <a class="nav-brand" href="index.html">🐦 Team Crow Power</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="pagina_2torneo.html">Bracket</a></li>
-      <li><a href="paginareloj.html">Cuenta atrás</a></li>
-      <li><a href="index_inscripción_2vs2.html" class="activo">Inscripción</a></li>
-    </ul>
-    <button class="hamburguesa" id="menuBtn" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="nav-menu-movil" id="menuMovil">
-    <a href="index.html">🏠 Inicio</a>
-    <a href="pagina_2torneo.html">🏆 Bracket</a>
-    <a href="paginareloj.html">⏱️ Cuenta atrás</a>
-    <a href="index_inscripción_2vs2.html">📝 Inscripción</a>
-  </div>
 
   <!-- HERO -->
   <header class="hero">
@@ -869,14 +849,6 @@
   </footer>
 
   <script>
-    // ── Menú hamburguesa ──
-    const menuBtn = document.getElementById('menuBtn');
-    const menuMov = document.getElementById('menuMovil');
-    menuBtn.addEventListener('click', () => {
-      menuBtn.classList.toggle('abierto');
-      menuMov.classList.toggle('visible');
-    });
-
     // ── Envío del formulario ──
     async function handleSubmit() {
       // Campos Jugador 1 (Capitán)
@@ -935,6 +907,7 @@
       btn.textContent = 'Enviando...';
 
       const formData = new FormData();
+      formData.append('Modalidad',           '2vs2');
       // Equipo
       formData.append('Equipo',              nombreEquipo);
       // Jugador 1
@@ -959,8 +932,8 @@
       formData.append('Acepta_reglamento',  reglamento   ? 'Sí' : 'No');
       formData.append('Derechos_transmision', transmision ? 'Sí' : 'No');
 
-      // ⚠️ Reemplaza con tu propio Google Apps Script endpoint
-      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxlYoX4L5OFcI9us3ejfnjYwFw-wj3Xiz_kg_1IzqIwA7xKbLEsT2QXa8-B1ZlXt6o/exec';
+      // Endpoint unificado (1vs1 + 2vs2) — Apps Script Torneo BeaNabi
+      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbzZTFZJWXHWWOl2lPopp4zTfFjT4odCx3k_t745ud5y4IFolwcg81YKiKkR8n3C-TYq/exec';
 
       try {
         await fetch(ENDPOINT, { method: 'POST', body: formData, mode: 'no-cors' });
@@ -979,5 +952,6 @@
     }
   </script>
 
+  <script src="menu.js"></script>
 </body>
 </html>
