@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscripción · Torneo 2 VS 2 · Team Crow Power</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:        #2ec5ff;
+      --azul-osc:    #1a8ab5;
+      --oro:         #ffd23f;
+      --oro-osc:     #c89b00;
+      --rosa:        #ff3d81;
+      --verde:       #3dffa0;
+      --fondo:       #0d0b2b;
+      --fondo-2:     #1b1148;
+      --tarjeta:     rgba(255,255,255,0.07);
+      --borde:       rgba(255,255,255,0.14);
+      --texto:       #ffffff;
+      --gris:        #cdd3ff;
+      /* Formulario (claro) */
+      --form-bg:     #f5f7ff;
+      --form-card:   #ffffff;
+      --form-borde:  #d8dff0;
+      --form-medio:  #5a637a;
+      --form-osc:    #1c2040;
+      --radio:       10px;
+      --radio-lg:    16px;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--form-bg);
+      color: var(--form-osc);
+      min-height: 100vh;
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    .hero {
+      background:
+        radial-gradient(circle at 20% 0%,  rgba(46,197,255,.22), transparent 45%),
+        radial-gradient(circle at 80% 15%, rgba(255,61,129,.22),  transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(61,255,160,.10),  transparent 40%),
+        linear-gradient(160deg, var(--fondo), var(--fondo-2));
+      color: var(--texto);
+      padding: 3.5rem 1.5rem 5.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 12% 22%, #fff, transparent),
+        radial-gradient(2px 2px at 68% 38%, #fff, transparent),
+        radial-gradient(1px 1px at 38% 82%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 88% 68%, #fff, transparent),
+        radial-gradient(1px 1px at 55% 15%, #fff, transparent),
+        radial-gradient(1px 1px at 30% 55%, #fff, transparent),
+        radial-gradient(2px 2px at 75% 90%, #fff, transparent);
+      opacity: .3;
+      pointer-events: none;
+    }
+
+    /* VS badge decorativo */
+    .vs-deco {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, var(--azul), var(--rosa), var(--oro), var(--azul));
+      margin: 0 auto 1.4rem;
+      font-family: 'Lilita One', cursive;
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 2px 2px 0 rgba(0,0,0,.4);
+      box-shadow: 0 0 40px rgba(46,197,255,.4), 0 0 80px rgba(255,61,129,.2);
+      animation: flotar 3.5s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+    .vs-deco::before {
+      content: '';
+      position: absolute; inset: 3px;
+      border-radius: 50%;
+      background: var(--fondo-2);
+    }
+    .vs-deco span { position: relative; z-index: 1; }
+
+    @keyframes flotar {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      color: rgba(255,255,255,.9);
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 999px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Lilita One', cursive;
+      font-size: clamp(2rem, 5.5vw, 3.4rem);
+      line-height: 1.1;
+      color: var(--oro);
+      text-shadow: 3px 3px 0 var(--oro-osc), 5px 5px 0 rgba(0,0,0,.35);
+      margin-bottom: .75rem;
+    }
+    .hero h1 span { color: var(--azul); }
+    .hero h1 .vs-text {
+      color: var(--rosa);
+      font-size: 1.1em;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,.75);
+      max-width: 480px;
+      margin: 0 auto 1.6rem;
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .hero-tag {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.20);
+      color: rgba(255,255,255,.88);
+      font-size: 12px;
+      padding: 5px 13px;
+      border-radius: 999px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+    }
+
+    /* Resumen */
+    .resumen {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      max-width: 720px;
+      margin: 2rem auto 0;
+      text-align: left;
+    }
+    .resumen-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 14px;
+      padding: 16px;
+      backdrop-filter: blur(6px);
+    }
+    .resumen-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--azul);
+      margin-bottom: 10px;
+    }
+    .resumen-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .resumen-card li { font-size: 12.5px; color: rgba(255,255,255,.8); line-height: 1.4; }
+    .resumen-card li::before { content: "· "; color: var(--oro); }
+    .premio-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .premio-emoji {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+      filter: drop-shadow(0 2px 8px rgba(255,210,63,.4));
+    }
+    .premio-box div { font-size: 12.5px; color: rgba(255,255,255,.85); line-height: 1.5; }
+    .premio-box strong { color: var(--oro); display: block; font-family: 'Syne', sans-serif; font-size: 13px; margin-bottom: 2px; }
+
+    /* ═══════════════════════════════════════════
+       FORMULARIO
+    ═══════════════════════════════════════════ */
+    .form-container {
+      max-width: 720px;
+      margin: -2.5rem auto 3rem;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .form-card {
+      background: var(--form-card);
+      border-radius: var(--radio-lg);
+      border: 1px solid var(--form-borde);
+      overflow: hidden;
+      box-shadow: 0 6px 40px rgba(27,17,72,.18);
+    }
+
+    /* Divisor de sección de jugador */
+    .player-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--fondo-2), #2a1a6e);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .player-divider-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .player-divider-icon.capitan {
+      background: linear-gradient(135deg, var(--oro), var(--oro-osc));
+      box-shadow: 0 0 12px rgba(255,210,63,.4);
+    }
+    .player-divider-icon.companion {
+      background: linear-gradient(135deg, var(--azul), var(--azul-osc));
+      box-shadow: 0 0 12px rgba(46,197,255,.4);
+    }
+    .player-divider-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .player-divider-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+    }
+    .player-divider-name {
+      font-family: 'Lilita One', cursive;
+      font-size: 1.1rem;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .player-divider-name.oro { color: var(--oro); }
+    .player-divider-name.azul { color: var(--azul); }
+
+    .section {
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--form-borde);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.25rem;
+    }
+    .section-num {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--fondo-2);
+      color: var(--azul);
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--azul);
+    }
+    .section-num.oro {
+      color: var(--oro);
+      border-color: var(--oro);
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--form-osc);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    /* Cuadrícula de campos */
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .field-full { grid-column: 1 / -1; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+
+    .field label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--form-medio);
+      font-family: 'Syne', sans-serif;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .req { color: var(--rosa); margin-left: 2px; }
+
+    .field input,
+    .field select {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      padding: 10px 12px;
+      border: 1.5px solid var(--form-borde);
+      border-radius: var(--radio);
+      background: #f8faff;
+      color: var(--form-osc);
+      width: 100%;
+      outline: none;
+      transition: border-color .2s, background .2s, box-shadow .2s;
+      -webkit-appearance: none;
+    }
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--azul);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(46,197,255,.12);
+    }
+    /* Inputs del compañero con acento azul */
+    .companion-section .field input:focus,
+    .companion-section .field select:focus {
+      border-color: var(--azul);
+      box-shadow: 0 0 0 3px rgba(46,197,255,.12);
+    }
+
+    .field-hint {
+      font-size: 11px;
+      color: #8a94b2;
+      margin-top: -2px;
+    }
+
+    /* ── Términos ── */
+    .agree-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--form-borde);
+    }
+    .agree-row:last-child { border-bottom: none; }
+    .agree-row input[type=checkbox] {
+      width: 17px; height: 17px;
+      flex-shrink: 0; margin-top: 2px;
+      accent-color: var(--azul);
+      cursor: pointer;
+    }
+    .agree-row label {
+      font-size: 12.5px;
+      color: var(--form-medio);
+      line-height: 1.6;
+      cursor: pointer;
+    }
+    .agree-row label strong { color: var(--form-osc); }
+
+    /* Bloque de declaración */
+    .declaracion {
+      background: #f0f4ff;
+      border-left: 3px solid var(--azul);
+      border-radius: 0 var(--radio) var(--radio) 0;
+      padding: 12px 14px;
+      font-size: 12.5px;
+      color: #3a4470;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    /* ── Footer del formulario ── */
+    .form-footer {
+      padding: 1.5rem 2rem;
+      background: #f0f4ff;
+      border-top: 1px solid var(--form-borde);
+    }
+    .gratis-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #e6f9ed;
+      border: 1px solid #a8e6be;
+      border-radius: var(--radio);
+      padding: 10px 14px;
+      margin-bottom: 1rem;
+      font-size: 13px;
+      color: #1a5c2e;
+      font-weight: 600;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      background: linear-gradient(135deg, var(--fondo-2), #2a1a6e);
+      color: var(--oro);
+      border: 1.5px solid var(--oro);
+      border-radius: var(--radio-lg);
+      cursor: pointer;
+      transition: background .2s, transform .1s, box-shadow .2s;
+      text-transform: uppercase;
+    }
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #2a1a6e, var(--azul-osc));
+      box-shadow: 0 4px 20px rgba(46,197,255,.25);
+    }
+    .submit-btn:active { transform: scale(.99); }
+    .submit-btn:disabled { opacity: .55; cursor: not-allowed; }
+
+    /* ── Pantalla de éxito ── */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .success-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .success-screen h2 {
+      font-family: 'Lilita One', cursive;
+      font-size: 1.8rem;
+      color: var(--form-osc);
+      margin-bottom: .5rem;
+    }
+    .success-screen p {
+      font-size: 14px;
+      color: var(--form-medio);
+      max-width: 460px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+    #success-detail {
+      margin-top: 1rem;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--azul-osc);
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* ── Nombre del equipo ── */
+    .team-banner {
+      background: linear-gradient(135deg, #eef2ff, #f5f0ff);
+      border: 1.5px solid #c5ceff;
+      border-radius: var(--radio-lg);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .team-banner-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .team-banner-content { flex: 1; }
+    .team-banner-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #8a94c8;
+      margin-bottom: 6px;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(13,11,43,.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      padding: 0 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 54px;
+    }
+    .nav-brand {
+      font-family: 'Lilita One', cursive;
+      font-size: 1rem; color: var(--oro);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 6px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: #cdd3ff;
+      font-weight: 700; font-size: .88rem;
+      padding: 6px 13px; border-radius: 999px;
+      transition: background .2s;
+    }
+    .nav-links a:hover, .nav-links a.activo { background: var(--azul); color: #fff; }
+
+    .hamburguesa {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 6px;
+    }
+    .hamburguesa span {
+      display: block; width: 24px; height: 3px;
+      background: #fff; border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .hamburguesa.abierto span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburguesa.abierto span:nth-child(2) { opacity: 0; }
+    .hamburguesa.abierto span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .nav-menu-movil {
+      display: none; flex-direction: column;
+      background: rgba(13,11,43,.97);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      padding: 12px 20px 16px; gap: 8px;
+      position: sticky; top: 54px; z-index: 199;
+    }
+    .nav-menu-movil.visible { display: flex; }
+    .nav-menu-movil a {
+      text-decoration: none; color: #cdd3ff; font-weight: 700;
+      padding: 10px 14px; border-radius: 12px; transition: background .2s;
+    }
+    .nav-menu-movil a:hover { background: var(--azul); color: #fff; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hamburguesa { display: flex; }
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--fondo);
+      color: #cdd3ff;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .footer-inner { max-width: 680px; margin: 0 auto; }
+    .footer-org {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: var(--azul); margin-bottom: 1rem;
+    }
+    .footer-names {
+      display: flex; justify-content: center;
+      gap: 12px; flex-wrap: wrap; margin-bottom: 1.5rem;
+    }
+    .footer-chip {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px; padding: 6px 16px;
+      font-size: 13px; font-weight: 700; color: var(--oro);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 1.25rem;
+      font-size: 11px; color: rgba(255,255,255,.4);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .section         { padding: 1.5rem 1.25rem; }
+      .player-divider  { padding: .9rem 1.25rem; }
+      .field-grid      { grid-template-columns: 1fr; }
+      .form-footer     { padding: 1.25rem; }
+      .hero            { padding: 2.5rem 1.25rem 4.5rem; }
+      .resumen         { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="nav-brand" href="index.html">🐦 Team Crow Power</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="pagina_2torneo.html">Bracket</a></li>
+      <li><a href="paginareloj.html">Cuenta atrás</a></li>
+      <li><a href="index_inscripción_2vs2.html" class="activo">Inscripción</a></li>
+    </ul>
+    <button class="hamburguesa" id="menuBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-menu-movil" id="menuMovil">
+    <a href="index.html">🏠 Inicio</a>
+    <a href="pagina_2torneo.html">🏆 Bracket</a>
+    <a href="paginareloj.html">⏱️ Cuenta atrás</a>
+    <a href="index_inscripción_2vs2.html">📝 Inscripción</a>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="vs-deco"><span>2v2</span></div>
+    <div class="hero-badge">🐦 Team Crow Power · New Brawl Pioner Clarotops</div>
+    <h1>Torneo PVP <span class="vs-text">2 VS 2</span><br><span>New Brawl Pioner Clarotops</span></h1>
+    <p>Probablemente el último torneo… ¡disfrútenlo al máximo! XD<br>8 equipos · 16 jugadores · Inscripción 100% gratuita.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🎲 Aleatorio</span>
+      <span class="hero-tag">👥 8 Equipos</span>
+      <span class="hero-tag">💵 Premio $15 USD</span>
+      <span class="hero-tag">✅ Gratis</span>
+    </div>
+
+    <div class="resumen">
+      <div class="resumen-card">
+        <h3>📜 Reglas</h3>
+        <ul>
+          <li>Respeto y Fair Play <strong>(Juego Limpio)</strong></li>
+          <li>Mapa: <strong>Aleatorio</strong></li>
+          <li>Selección de Brawlers Libre</li>
+        </ul>
+      </div>
+      <div class="resumen-card">
+        <h3>⚖️ Sanciones</h3>
+        <ul>
+          <li>3 llamadas de atención → fuera</li>
+          <li>Salir de la partida</li>
+          <li>No presentarse al partido</li>
+          <li>No contestar el día del torneo</li>
+        </ul>
+      </div>
+      <div class="resumen-card">
+        <h3>🎁 Premio</h3>
+        <div class="premio-box">
+          <div class="premio-emoji">💵</div>
+          <div>
+            <strong>$15 USD · Equipo campeón</strong>
+            Inscripción 100% gratuita — ningún pago requerido.
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FORMULARIO -->
+  <div class="form-container">
+    <div class="form-card" id="main-form">
+
+      <!-- ══════════ SECCIÓN 1: NOMBRE DEL EQUIPO ══════════ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num oro">1</div>
+          <span class="section-title">Nombre del Equipo</span>
+        </div>
+        <div class="field">
+          <label>Nombre del equipo <span class="req">*</span></label>
+          <input type="text" id="nombre_equipo" name="Nombre del equipo" placeholder="Ej. Los Kitters FC" required>
+          <span class="field-hint">El nombre que representará a su dúo en el bracket.</span>
+        </div>
+      </div>
+
+      <!-- ══════════ DIVIDER JUGADOR 1 ══════════ -->
+      <div class="player-divider">
+        <div class="player-divider-icon capitan">👑</div>
+        <div class="player-divider-text">
+          <span class="player-divider-label">Sección 2</span>
+          <span class="player-divider-name oro">Jugador 1 — Capitán</span>
+        </div>
+      </div>
+
+      <!-- ══════════ SECCIÓN 2: JUGADOR 1 ══════════ -->
+      <div class="section">
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field">
+            <label>Tag de Brawl Stars <span class="req">*</span></label>
+            <input type="text" id="tag1" name="Tag_J1" placeholder="#XXXXXXXX" required>
+            <span class="field-hint">Empieza con #. Búscalo en tu perfil.</span>
+          </div>
+          <div class="field">
+            <label>Nombre en el juego <span class="req">*</span></label>
+            <input type="text" id="nombre1" name="Nombre_J1" placeholder="Tu nombre en Brawl Stars" required>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field field-full">
+            <label>Supercell ID <span class="req">*</span></label>
+            <input type="text" id="supercell1" name="SupercellID_J1" placeholder="Tu Supercell ID" required>
+            <span class="field-hint">El nombre de cuenta vinculado a Supercell.</span>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field">
+            <label>Sexo</label>
+            <select id="sexo1" name="Sexo_J1">
+              <option value="">Selecciona...</option>
+              <option>Masculino</option>
+              <option>Femenino</option>
+              <option>No binario</option>
+              <option>Prefiero no decir</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Fecha de nacimiento <span class="req">*</span></label>
+            <input type="date" id="nacimiento1" name="Nacimiento_J1" required>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field">
+            <label>Copas actuales <span class="req">*</span></label>
+            <input type="number" id="copas1" name="Copas_J1" placeholder="Ej. 25000" min="0" required>
+            <span class="field-hint">Trofeos totales en tu cuenta.</span>
+          </div>
+          <div class="field">
+            <label>Nacionalidad <span class="req">*</span></label>
+            <input type="text" id="nacionalidad1" name="Nacionalidad_J1" placeholder="Ej. Colombiano/a" required>
+          </div>
+        </div>
+
+        <div class="field-grid">
+          <div class="field field-full">
+            <label>Número de WhatsApp del Capitán <span class="req">*</span></label>
+            <input type="tel" id="whatsapp1" name="WhatsApp_J1" placeholder="+57 300 000 0000" autocomplete="tel" required>
+            <span class="field-hint">Con indicativo del país. Este será tu contacto principal para coordinar partidas.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════ DIVIDER JUGADOR 2 ══════════ -->
+      <div class="player-divider">
+        <div class="player-divider-icon companion">🎮</div>
+        <div class="player-divider-text">
+          <span class="player-divider-label">Sección 3</span>
+          <span class="player-divider-name azul">Jugador 2 — Compañero</span>
+        </div>
+      </div>
+
+      <!-- ══════════ SECCIÓN 3: JUGADOR 2 ══════════ -->
+      <div class="section companion-section">
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field">
+            <label>Tag de Brawl Stars <span class="req">*</span></label>
+            <input type="text" id="tag2" name="Tag_J2" placeholder="#XXXXXXXX" required>
+            <span class="field-hint">Empieza con #. Búscalo en tu perfil.</span>
+          </div>
+          <div class="field">
+            <label>Nombre en el juego <span class="req">*</span></label>
+            <input type="text" id="nombre2" name="Nombre_J2" placeholder="Nombre en Brawl Stars" required>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field field-full">
+            <label>Supercell ID <span class="req">*</span></label>
+            <input type="text" id="supercell2" name="SupercellID_J2" placeholder="Supercell ID del compañero" required>
+            <span class="field-hint">El nombre de cuenta vinculado a Supercell.</span>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field">
+            <label>Sexo</label>
+            <select id="sexo2" name="Sexo_J2">
+              <option value="">Selecciona...</option>
+              <option>Masculino</option>
+              <option>Femenino</option>
+              <option>No binario</option>
+              <option>Prefiero no decir</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Fecha de nacimiento <span class="req">*</span></label>
+            <input type="date" id="nacimiento2" name="Nacimiento_J2" required>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-bottom:14px">
+          <div class="field">
+            <label>Copas actuales <span class="req">*</span></label>
+            <input type="number" id="copas2" name="Copas_J2" placeholder="Ej. 25000" min="0" required>
+            <span class="field-hint">Trofeos totales en tu cuenta.</span>
+          </div>
+          <div class="field">
+            <label>Nacionalidad <span class="req">*</span></label>
+            <input type="text" id="nacionalidad2" name="Nacionalidad_J2" placeholder="Ej. Colombiano/a" required>
+          </div>
+        </div>
+
+        <div class="field-grid">
+          <div class="field field-full">
+            <label>Número de WhatsApp del Compañero <span class="req">*</span></label>
+            <input type="tel" id="whatsapp2" name="WhatsApp_J2" placeholder="+57 300 000 0000" autocomplete="tel" required>
+            <span class="field-hint">Con indicativo del país. Solo para coordinación del torneo.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════ SECCIÓN 4: TÉRMINOS ══════════ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">4</div>
+          <span class="section-title">Aceptación de Términos</span>
+        </div>
+
+        <div class="declaracion">
+          "He leído y acepto el Reglamento oficial de Team Crow Power (TCP) y New Brawl Pioner Clarotops (NBP). Me comprometo a usar única y exclusivamente a Kit en el mapa de Balón Brawl, jugar limpio sin buscar ventajas injustas y cumplir las reglas para evitar las 3 llamadas de atención y la expulsión del torneo."
+        </div>
+
+        <div class="agree-row">
+          <input type="checkbox" id="reglamento" required>
+          <label for="reglamento">
+            <strong>Tratamiento de Datos del Brawler <span class="req">*</span></strong><br>
+            "Autorizo a TCP &amp; NBP para el manejo de mi Player Tag (#ID), nombre en el juego y contacto de WhatsApp con fines estrictamente organizativos (armado del bracket, emparejamientos y coordinación para la entrega del premio), conforme a las normativas de protección de datos vigentes."
+          </label>
+        </div>
+
+        <div class="agree-row">
+          <input type="checkbox" id="transmision" required>
+          <label for="transmision">
+            <strong>Derechos de Transmisión y Repeticiones <span class="req">*</span></strong><br>
+            "Autorizo a los organizadores a utilizar capturas de pantalla, repeticiones de mis partidas (especialmente mis mejores goles y jugadas con la Super) y mi nombre de jugador para la difusión de resultados y resúmenes del torneo."
+          </label>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="form-footer">
+        <div class="gratis-banner">
+          ✅ Inscripción completamente gratuita — no se requiere ningún pago.
+        </div>
+        <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">
+          Enviar inscripción del equipo →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Pantalla de éxito -->
+    <div class="form-card success-screen" id="success-screen">
+      <div class="success-icon">🏆</div>
+      <h2>¡Equipo inscrito!</h2>
+      <p>Su registro fue recibido. El capitán del equipo recibirá confirmación por WhatsApp con su lugar en el bracket.</p>
+      <p id="success-detail"></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-org">Organiza</p>
+      <div class="footer-names">
+        <span class="footer-chip">🐦 Team Crow Power</span>
+        <span class="footer-chip">New Brawl Pioner Clarotops</span>
+      </div>
+      <div class="footer-bottom">
+        Esta es una página creada por fans para un torneo amistoso no oficial de Supercell, sin fines de lucro.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Menú hamburguesa ──
+    const menuBtn = document.getElementById('menuBtn');
+    const menuMov = document.getElementById('menuMovil');
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('abierto');
+      menuMov.classList.toggle('visible');
+    });
+
+    // ── Envío del formulario ──
+    async function handleSubmit() {
+      // Campos Jugador 1 (Capitán)
+      const nombreEquipo  = document.getElementById('nombre_equipo').value.trim();
+      const tag1          = document.getElementById('tag1').value.trim();
+      const nombre1       = document.getElementById('nombre1').value.trim();
+      const supercell1    = document.getElementById('supercell1').value.trim();
+      const sexo1         = document.getElementById('sexo1').value;
+      const nacimiento1   = document.getElementById('nacimiento1').value;
+      const copas1        = document.getElementById('copas1').value;
+      const nacionalidad1 = document.getElementById('nacionalidad1').value.trim();
+      const whatsapp1     = document.getElementById('whatsapp1').value.trim();
+
+      // Campos Jugador 2 (Compañero)
+      const tag2          = document.getElementById('tag2').value.trim();
+      const nombre2       = document.getElementById('nombre2').value.trim();
+      const supercell2    = document.getElementById('supercell2').value.trim();
+      const sexo2         = document.getElementById('sexo2').value;
+      const nacimiento2   = document.getElementById('nacimiento2').value;
+      const copas2        = document.getElementById('copas2').value;
+      const nacionalidad2 = document.getElementById('nacionalidad2').value.trim();
+      const whatsapp2     = document.getElementById('whatsapp2').value.trim();
+
+      // Términos
+      const reglamento  = document.getElementById('reglamento').checked;
+      const transmision = document.getElementById('transmision').checked;
+
+      // Validaciones básicas
+      if (!nombreEquipo) {
+        alert('Por favor ingresa el nombre del equipo.');
+        return;
+      }
+      if (!tag1 || !nombre1 || !supercell1 || !nacimiento1 || !copas1 || !nacionalidad1 || !whatsapp1) {
+        alert('Por favor completa todos los campos obligatorios del Jugador 1 (Capitán).');
+        return;
+      }
+      if (!tag2 || !nombre2 || !supercell2 || !nacimiento2 || !copas2 || !nacionalidad2 || !whatsapp2) {
+        alert('Por favor completa todos los campos obligatorios del Jugador 2 (Compañero).');
+        return;
+      }
+      if (!tag1.startsWith('#')) {
+        alert('El Tag del Jugador 1 debe comenzar con #. Ej: #XXXXXXXX');
+        return;
+      }
+      if (!tag2.startsWith('#')) {
+        alert('El Tag del Jugador 2 debe comenzar con #. Ej: #XXXXXXXX');
+        return;
+      }
+      if (!reglamento || !transmision) {
+        alert('Debes aceptar los dos términos obligatorios para continuar.');
+        return;
+      }
+
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      const formData = new FormData();
+      // Equipo
+      formData.append('Equipo',              nombreEquipo);
+      // Jugador 1
+      formData.append('Tag_J1',             tag1);
+      formData.append('Nombre_J1',          nombre1);
+      formData.append('SupercellID_J1',     supercell1);
+      formData.append('Sexo_J1',            sexo1 || 'No especificado');
+      formData.append('Nacimiento_J1',      nacimiento1);
+      formData.append('Copas_J1',           copas1);
+      formData.append('Nacionalidad_J1',    nacionalidad1);
+      formData.append('WhatsApp_J1',        whatsapp1);
+      // Jugador 2
+      formData.append('Tag_J2',             tag2);
+      formData.append('Nombre_J2',          nombre2);
+      formData.append('SupercellID_J2',     supercell2);
+      formData.append('Sexo_J2',            sexo2 || 'No especificado');
+      formData.append('Nacimiento_J2',      nacimiento2);
+      formData.append('Copas_J2',           copas2);
+      formData.append('Nacionalidad_J2',    nacionalidad2);
+      formData.append('WhatsApp_J2',        whatsapp2);
+      // Términos
+      formData.append('Acepta_reglamento',  reglamento   ? 'Sí' : 'No');
+      formData.append('Derechos_transmision', transmision ? 'Sí' : 'No');
+
+      // ⚠️ Reemplaza con tu propio Google Apps Script endpoint
+      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxlYoX4L5OFcI9us3ejfnjYwFw-wj3Xiz_kg_1IzqIwA7xKbLEsT2QXa8-B1ZlXt6o/exec';
+
+      try {
+        await fetch(ENDPOINT, { method: 'POST', body: formData, mode: 'no-cors' });
+        document.getElementById('main-form').style.display = 'none';
+        const ss = document.getElementById('success-screen');
+        ss.style.display = 'block';
+        document.getElementById('success-detail').textContent =
+          '⚔️ Equipo: ' + nombreEquipo + '  ·  '
+          + nombre1 + ' (' + tag1 + ')  &  '
+          + nombre2 + ' (' + tag2 + ')';
+      } catch (err) {
+        alert('Error de conexión. Verifica tu internet e intenta de nuevo.');
+        btn.disabled = false;
+        btn.textContent = 'Enviar inscripción del equipo →';
+      }
+    }
+  </script>
+
+</body>
+</html>
