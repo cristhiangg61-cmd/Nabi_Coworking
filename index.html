@@ -186,6 +186,13 @@
       transition: transform .25s ease;
     }
     .acceso:hover img{ transform: scale(1.08) rotate(-2deg); }
+    /* Imagen del reloj: cuadrada (recortada) y un poco más grande */
+    .acceso img.reloj{
+      width:150px; height:150px;
+      object-fit:cover; object-position:center;
+      border-radius:18px;
+      border:3px solid rgba(255,255,255,.2);
+    }
     .acceso h3{ font-family:'Lilita One',cursive; font-size:1.15rem; color:var(--oro); }
     .acceso p{ margin-top:6px; color:#cdd3ff; font-size:.85rem; line-height:1.35; }
 
@@ -233,7 +240,7 @@
           <p>¡Presiona la súper para ver el cuadro del torneo!</p>
         </a>
         <a class="acceso" href="paginareloj.html">
-          <img src="imagenes/reloj torneo.jpg" alt="Reloj de Colette">
+          <img class="reloj" src="imagenes/reloj torneo.jpg" alt="Reloj de Colette">
           <h3>Cuenta regresiva</h3>
           <p>¡Presiona el reloj de Colette para ver cuánto falta!</p>
         </a>
@@ -270,7 +277,7 @@
           <p>¡Presiona la súper para ver el cuadro del torneo!</p>
         </a>
         <a class="acceso" href="pagina_reloj_2vs2.html">
-          <img src="imagenes/reloj torneo.jpg" alt="Reloj de Colette">
+          <img class="reloj" src="imagenes/reloj torneo.jpg" alt="Reloj de Colette">
           <h3>Cuenta regresiva</h3>
           <p>¡Presiona el reloj de Colette para ver cuánto falta!</p>
         </a>
