@@ -725,7 +725,7 @@
       formData.append('Autoriza difusión', transmision  ? 'Sí' : 'No');
 
       // Endpoint unificado (1vs1 + 2vs2) — Apps Script Torneo BeaNabi
-      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbzZTFZJWXHWWOl2lPopp4zTfFjT4odCx3k_t745ud5y4IFolwcg81YKiKkR8n3C-TYq/exec';
+      const ENDPOINT = 'https://script.google.com/macros/s/AKfycbzOUxUxAyHMKiPYAdF0rC2sTa6xEiShwOMAG_mpiQ7wyePvpIQigz4rmb6eQCx7Vq6Nhg/exec';
 
       try {
         await fetch(ENDPOINT, { method: 'POST', body: formData, mode: 'no-cors' });
