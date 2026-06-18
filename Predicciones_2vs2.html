@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Torneo 2v2</title>
+    <title>Torneo 2vs2</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; overflow-x: hidden; }
@@ -55,7 +55,7 @@
         // FIX #6: Removido useCallback que no se usaba
         const { useState, useMemo, useEffect } = React;
 
-        const STORAGE_KEY = "torneo2v2_estado";
+        const STORAGE_KEY = "torneo2vs2_estado";
 
         const EQUIPOS_DEFAULT = [
           ["Jugador 1","Jugador 2"],
@@ -517,7 +517,7 @@
         }
 
         // ─── TORNEO PRINCIPAL ────────────────────────────────────────────────
-        function Torneo2v2() {
+        function Torneo2vs2() {
           // FIX #8: Inicializar desde localStorage si existe
           const [st, setSt] = useState(() => {
             const saved = loadFromStorage();
@@ -885,7 +885,7 @@
           );
         }
 
-        ReactDOM.createRoot(document.getElementById('root')).render(<Torneo2v2 />);
+        ReactDOM.createRoot(document.getElementById('root')).render(<Torneo2vs2 />);
     </script>
     <script src="menu.js"></script>
 </body>
