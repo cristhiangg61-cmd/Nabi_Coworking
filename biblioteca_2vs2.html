@@ -298,18 +298,7 @@
 
 <!-- ── TOPBAR (fixed) ── -->
 <div class="topbar">
-  <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
-    <a href="index.html" style="
-      display:inline-flex;align-items:center;gap:5px;
-      font-size:12px;font-weight:600;color:var(--text2);text-decoration:none;
-      border:1px solid var(--border);border-radius:20px;padding:5px 12px;
-      transition:all .15s;white-space:nowrap;
-    " onmouseover="this.style.color='var(--text)';this.style.borderColor='var(--text3)';this.style.background='var(--card)'"
-       onmouseout="this.style.color='var(--text2)';this.style.borderColor='var(--border)';this.style.background='transparent'">
-      ← Inicio
-    </a>
-    <div class="brand">📚 Biblioteca <span>2vs2</span></div>
-  </div>
+  <div class="brand">📚 Biblioteca <span>2vs2</span></div>
   <div class="nav-pills">
     <a href="#" data-slide="0" class="active">Inicio</a>
     <a href="#" data-slide="1">Antecedentes</a>
@@ -319,7 +308,87 @@
     <a href="#" data-slide="5">Final</a>
     <a href="#" data-slide="6">Cierre</a>
   </div>
+  <button id="bib-burger" aria-label="Abrir menú" style="
+    display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;
+    width:38px;height:38px;border-radius:10px;flex-shrink:0;
+    background:rgba(255,255,255,.05);border:1px solid var(--border);
+    cursor:pointer;padding:0;
+  ">
+    <span style="display:block;width:18px;height:2px;background:var(--text2);border-radius:2px;transition:transform .3s,opacity .3s;"></span>
+    <span style="display:block;width:18px;height:2px;background:var(--text2);border-radius:2px;transition:opacity .3s;"></span>
+    <span style="display:block;width:18px;height:2px;background:var(--text2);border-radius:2px;transition:transform .3s,opacity .3s;"></span>
+  </button>
 </div>
+
+<!-- OVERLAY -->
+<div id="bib-overlay" style="
+  display:none;position:fixed;inset:0;z-index:590;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(2px);
+"></div>
+
+<!-- DRAWER -->
+<aside id="bib-drawer" style="
+  position:fixed;top:0;right:0;z-index:610;
+  width:260px;max-width:85vw;height:100%;
+  background:#0f1018;border-left:1px solid var(--border);
+  box-shadow:-10px 0 30px rgba(0,0,0,.6);
+  transform:translateX(105%);transition:transform .3s cubic-bezier(.22,1,.36,1);
+  display:flex;flex-direction:column;padding:18px 16px 28px;
+  overflow-y:auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+    <span style="font-size:14px;font-weight:600;color:var(--accent-amber);">📚 Biblioteca 2vs2</span>
+    <button id="bib-close" aria-label="Cerrar menú" style="
+      width:30px;height:30px;border-radius:50%;
+      background:rgba(255,255,255,.07);border:1px solid var(--border);
+      color:var(--text2);font-size:14px;cursor:pointer;line-height:1;
+    ">✕</button>
+  </div>
+
+  <a href="index.html" style="display:block;text-decoration:none;color:var(--text);font-weight:600;font-size:13px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:4px;transition:background .15s;"
+     onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.05)'">🏠 Inicio</a>
+
+  <div style="margin-top:14px;margin-bottom:6px;font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;padding:0 4px;border-bottom:1px solid var(--border);padding-bottom:6px;">Torneo 1 VS 1</div>
+  <a href="pagina_2torneo.html" style="display:block;text-decoration:none;color:var(--text2);font-size:13px;padding:9px 12px;border-radius:9px;margin-bottom:3px;transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.background='transparent'">🏆 Bracket</a>
+  <a href="paginareloj.html"    style="display:block;text-decoration:none;color:var(--text2);font-size:13px;padding:9px 12px;border-radius:9px;margin-bottom:3px;transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.background='transparent'">⏱️ Reloj</a>
+  <a href="index_inscripción.html" style="display:block;text-decoration:none;color:var(--text2);font-size:13px;padding:9px 12px;border-radius:9px;margin-bottom:3px;transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.background='transparent'">📝 Inscripción</a>
+
+  <div style="margin-top:14px;margin-bottom:6px;font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;padding:0 4px;border-bottom:1px solid var(--border);padding-bottom:6px;">📜 Archivo · 2 VS 2</div>
+  <a href="biblioteca_2vs2.html" style="display:block;text-decoration:none;color:var(--accent-amber);font-size:13px;padding:9px 12px;border-radius:9px;margin-bottom:3px;background:rgba(186,117,23,.08);border:1px solid rgba(186,117,23,.15);">📖 Crónica del torneo</a>
+  <a href="bracket_2vs2.html"    style="display:block;text-decoration:none;color:var(--text2);font-size:13px;padding:9px 12px;border-radius:9px;margin-bottom:3px;transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.background='transparent'">🏆 Bracket final</a>
+  <a href="Predicciones_2vs2.html" style="display:block;text-decoration:none;color:var(--text2);font-size:13px;padding:9px 12px;border-radius:9px;transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.background='transparent'">🔮 Predicciones</a>
+
+  <div style="margin-top:auto;padding-top:18px;font-size:11px;color:var(--text3);text-align:center;line-height:1.5;">Team Crow Power · Torneo BeaNabi</div>
+</aside>
+
+<script>
+(function(){
+  var burger  = document.getElementById('bib-burger');
+  var overlay = document.getElementById('bib-overlay');
+  var drawer  = document.getElementById('bib-drawer');
+  var close   = document.getElementById('bib-close');
+  var spans   = burger.querySelectorAll('span');
+
+  function abrir(){
+    drawer.style.transform  = 'translateX(0)';
+    overlay.style.display   = 'block';
+    spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+    spans[1].style.opacity   = '0';
+    spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+  }
+  function cerrar(){
+    drawer.style.transform  = 'translateX(105%)';
+    overlay.style.display   = 'none';
+    spans[0].style.transform = '';
+    spans[1].style.opacity   = '';
+    spans[2].style.transform = '';
+  }
+  burger.addEventListener('click', function(){ drawer.style.transform === 'translateX(0)' ? cerrar() : abrir(); });
+  close.addEventListener('click', cerrar);
+  overlay.addEventListener('click', cerrar);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') cerrar(); });
+})();
+</script>
 
 <!-- ── ARROW BUTTONS ── -->
 <button class="slide-arrow dimmed" id="arrow-prev" aria-label="Anterior">
