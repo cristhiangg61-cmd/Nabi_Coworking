@@ -196,6 +196,77 @@
     .acceso h3{ font-family:'Lilita One',cursive; font-size:1.15rem; color:var(--oro); }
     .acceso p{ margin-top:6px; color:#cdd3ff; font-size:.85rem; line-height:1.35; }
 
+    /* ----- Sección historial / archivo ----- */
+    .historial{
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 24px 22px 28px;
+      margin: 30px auto;
+      backdrop-filter: blur(4px);
+      opacity: .88;
+    }
+    .historial-cabecera{
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:10px; margin-bottom:16px;
+    }
+    .historial-left{ display:flex; align-items:center; gap:10px; }
+    .badge-archivo{
+      display:inline-block;
+      font-size:.72rem; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+      padding:4px 12px; border-radius:999px;
+      background: rgba(136,135,128,.2); color:#9b9eb3;
+      border:1px solid rgba(136,135,128,.3);
+    }
+    .historial h2{
+      font-family:'Lilita One', cursive;
+      font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+      color:#7a7d9a;
+      text-shadow: none;
+    }
+    .historial-resultado{
+      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+      background: rgba(99,153,34,.07);
+      border: 1px solid rgba(99,153,34,.2);
+      border-radius:14px; padding:14px 16px; margin-bottom:16px;
+    }
+    .historial-resultado .trofeo{ font-size:2rem; flex-shrink:0; }
+    .historial-resultado .result-info{ flex:1; min-width:0; }
+    .historial-resultado .result-info .eti{
+      font-size:.7rem; font-weight:800; text-transform:uppercase;
+      letter-spacing:.08em; color:#639922; margin-bottom:2px;
+    }
+    .historial-resultado .result-info .campeones{
+      font-family:'Lilita One', cursive;
+      font-size:1.15rem; color:#c8e89a;
+    }
+    .historial-resultado .result-info .subcampeones{
+      font-size:.8rem; color:#7a8a6a; margin-top:2px;
+    }
+    .historial-resultado .premio-entregado{
+      text-align:right; flex-shrink:0;
+    }
+    .historial-resultado .premio-entregado .monto{
+      font-family:'Lilita One',cursive; font-size:1.3rem; color:#97c459;
+    }
+    .historial-resultado .premio-entregado .nota{
+      font-size:.72rem; color:#639922; margin-top:1px;
+    }
+    .historial-meta{
+      display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px;
+      font-size:.78rem; color:#6b6e85;
+    }
+    .historial-meta span{ display:flex; align-items:center; gap:4px; }
+    .historial-link{
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:.82rem; font-weight:700; color:#6b7099;
+      border:1px solid rgba(255,255,255,.1); border-radius:999px;
+      padding:7px 16px; text-decoration:none;
+      background: rgba(255,255,255,.04);
+      transition: background .2s, color .2s;
+    }
+    .historial-link:hover{ background:rgba(255,255,255,.1); color:#cdd3ff; }
+
     /* ----- Pie ----- */
     footer{
       margin-top:44px; font-size:.85rem; color:#9aa0d4;
@@ -252,46 +323,38 @@
       </div>
     </section>
 
-    <!-- ══════════ TORNEO 2 VS 2 ══════════ -->
-    <section class="torneo dos">
-      <div class="torneo-cabecera">
-        <span class="torneo-etiqueta">👥 Modalidad por equipos</span>
-        <h2>Torneo 2 VS 2</h2>
-        <p class="desc">8 equipos · 16 jugadores. Forma tu dúo, sube en el bracket y haz tus predicciones.</p>
+    <!-- ══════════ HISTORIAL · TORNEO 2 VS 2 ══════════ -->
+    <section class="historial">
+      <div class="historial-cabecera">
+        <div class="historial-left">
+          <span class="badge-archivo">📜 Finalizado</span>
+          <h2>Torneo 2 VS 2</h2>
+        </div>
+        <span style="font-size:.78rem;color:#6b6e85;">7 jun 2026 · 8 equipos</span>
       </div>
 
-      <!-- Premio 2vs2: $15 USD -->
-      <div class="premio">
-        <img class="premio-img" src="imagenes/15_Dolares.png" alt="Premio de 15 dólares">
-        <div class="premio-texto">
-          <div class="etq">🎁 Premio</div>
-          <div class="grande">$15 USD</div>
-          <div class="nota">¡Para el equipo campeón!</div>
+      <div class="historial-resultado">
+        <div class="trofeo">🏆</div>
+        <div class="result-info">
+          <div class="eti">Campeones</div>
+          <div class="campeones">MRV &amp; WB</div>
+          <div class="subcampeones">Subcampeones: Aron / Thorlo02</div>
+        </div>
+        <div class="premio-entregado">
+          <div class="monto">$15 USD</div>
+          <div class="nota">✓ Premio entregado</div>
         </div>
       </div>
 
-      <div class="accesos">
-        <a class="acceso" href="bracket_2vs2.html">
-          <img src="imagenes/Bracket page button.png" alt="Botón del bracket">
-          <h3>Ver el Bracket</h3>
-          <p>¡Presiona la súper para ver el cuadro del torneo!</p>
-        </a>
-        <a class="acceso" href="pagina_reloj_2vs2.html">
-          <img class="reloj" src="imagenes/reloj torneo.jpg" alt="Reloj de Colette">
-          <h3>Cuenta regresiva</h3>
-          <p>¡Presiona el reloj de Colette para ver cuánto falta!</p>
-        </a>
-        <a class="acceso" href="index_inscripción_2vs2.html">
-          <img src="imagenes/Inscripción.png" alt="Inscripción del equipo">
-          <h3>Inscripción</h3>
-          <p>¡Registra a tu equipo aquí!</p>
-        </a>
-        <a class="acceso" href="Predicciones_2vs2.html">
-          <img src="imagenes/Predicciones.png" alt="Predicciones del torneo">
-          <h3>Predicciones</h3>
-          <p>¿Que predicen las cartas?</p>
-        </a>
+      <div class="historial-meta">
+        <span>👥 16 jugadores</span>
+        <span>⚔️ Mejor de 3</span>
+        <span>📅 7 de junio de 2026</span>
       </div>
+
+      <a class="historial-link" href="biblioteca_2vs2.html">
+        📖 Ver crónica completa del torneo →
+      </a>
     </section>
 
     <footer>

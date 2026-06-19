@@ -35,17 +35,13 @@ El formulario ya tiene los campos correctos y va a Google Sheets vía Apps Scrip
 
 ---
 
-## Tarea A pendiente — Archivar el 2 VS 2 en index.html
+## ✅ Tarea A completada — Archivo 2 VS 2
 
-El torneo 2 VS 2 ya terminó y el premio ($15 USD) fue entregado.
+El torneo 2 VS 2 ya está archivado. Cambios aplicados:
 
-**Qué hacer:**
-- En `index.html`, convertir la sección `<section class="torneo dos">` a una apariencia de "historial":
-  - Cambiar la etiqueta de `👥 Modalidad por equipos` a `📜 FINALIZADO`
-  - Desaturar el color de acentos (de rosa `#ff3d81` a gris `#888`)
-  - Reemplazar la cuadrícula de 4 accesos por un resumen compacto: equipo campeón + premio entregado + fecha
-  - Dejar un solo enlace discreto "Ver bracket final" apuntando al `bracket_2vs2.html` existente (no borrar ese archivo)
-- En `menu.js`, mover/renombrar el grupo 2 VS 2 a "📜 Archivo · 2 VS 2" al final de la navegación
+- **`index.html`**: sección `torneo dos` convertida a card de historial (`clase historial`) con badge "📜 Finalizado", colores desaturados, resumen compacto de MRV/WB como campeones ($15 USD entregado), y enlace "Ver crónica completa" → `biblioteca_2vs2.html`.
+- **`menu.js`**: grupo "Torneo 2 VS 2" renombrado a "📜 Archivo · 2 VS 2", añadido `archivo: true` para estilo desaturado en el drawer. Links limpiados: crónica, bracket final, predicciones (ya no aparecen reloj ni inscripción porque están cerrados).
+- **`biblioteca_2vs2.html`**: crónica completa copiada al repo (790 líneas, crónica minuto a minuto del torneo del 7 jun 2026).
 
 ---
 

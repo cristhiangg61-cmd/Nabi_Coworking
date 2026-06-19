@@ -21,13 +21,13 @@
       ]
     },
     {
-      titulo: "Torneo 2 VS 2",
-      icono: "👥",
+      titulo: "Archivo · 2 VS 2",
+      icono: "📜",
+      archivo: true,
       items: [
-        { etiqueta: "🏆 Bracket",      href: "bracket_2vs2.html" },
-        { etiqueta: "⏱️ Reloj",         href: "pagina_reloj_2vs2.html" },
-        { etiqueta: "📝 Inscripción",   href: "index_inscripción_2vs2.html" },
-        { etiqueta: "🔮 Predicciones",  href: "Predicciones_2vs2.html" }
+        { etiqueta: "📖 Crónica del torneo", href: "biblioteca_2vs2.html" },
+        { etiqueta: "🏆 Bracket final",       href: "bracket_2vs2.html" },
+        { etiqueta: "🔮 Predicciones",         href: "Predicciones_2vs2.html" }
       ]
     }
   ];
@@ -133,6 +133,17 @@
     background:#2ec5ff; color:#fff; border-color:rgba(255,255,255,.25);
   }
 
+  .tcp-group.tcp-archivo .tcp-group-title{
+    color:#6b6e85; border-bottom-color:rgba(255,255,255,.07);
+    font-size:.82rem;
+  }
+  .tcp-group.tcp-archivo .tcp-link{
+    color:#7a7d9a; font-weight:600;
+  }
+  .tcp-group.tcp-archivo .tcp-link:hover{
+    background:rgba(255,255,255,.07); color:#cdd3ff; transform:translateX(2px);
+  }
+
   .tcp-foot{
     margin-top:auto; padding-top:18px; font-size:.72rem; color:#7c82b8;
     text-align:center; line-height:1.5;
@@ -173,7 +184,7 @@
         INICIO.href + '">' + INICIO.etiqueta + '</a>';
 
     GRUPOS.forEach(function (g) {
-      html += '<div class="tcp-group">';
+      html += '<div class="tcp-group' + (g.archivo ? ' tcp-archivo' : '') + '">';
       html += '<div class="tcp-group-title">' + g.icono + ' ' + g.titulo + '</div>';
       g.items.forEach(function (it) {
         html += '<a class="tcp-link' + (esActivo(it.href) ? ' tcp-activo' : '') +
