@@ -220,10 +220,9 @@
     .historial-banner-overlay{
       position: absolute; inset: 0;
       background: linear-gradient(
-        135deg,
-        rgba(5,4,20,.72) 0%,
-        rgba(10,8,35,.60) 50%,
-        rgba(5,4,20,.80) 100%
+        to bottom,
+        rgba(5,4,20,.10) 0%,
+        rgba(5,4,20,.55) 100%
       );
     }
     .historial-banner-content{
@@ -240,9 +239,10 @@
       display:inline-block;
       font-size:.72rem; font-weight:800; letter-spacing:1px; text-transform:uppercase;
       padding:4px 12px; border-radius:999px;
-      background: rgba(136,135,128,.25); color:#c8cadb;
-      border:1px solid rgba(136,135,128,.4);
+      background: rgba(136,135,128,.12); color:rgba(200,202,219,.75);
+      border:1px solid rgba(136,135,128,.22);
       backdrop-filter: blur(4px);
+      opacity: .78;
     }
     .historial h2{
       font-family:'Lilita One', cursive;
